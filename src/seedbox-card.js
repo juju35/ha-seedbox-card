@@ -2902,6 +2902,7 @@ class SeedboxCardEditor extends SeedboxEditorBase {
 }
 
 class SeedboxMiniCardEditor extends SeedboxEditorBase {
+  // The full card's options too: the detail button shows the full card with this same configuration.
   static get toggles() {
     return [
       ["show_title", true],
@@ -2909,6 +2910,11 @@ class SeedboxMiniCardEditor extends SeedboxEditorBase {
       ["show_history", true],
       ["show_footer", true],
       ["zoom", true],
+      ["show_speeds", true],
+      ["show_counts", true],
+      ["show_controls", true],
+      ["show_torrents", true],
+      ["expand_torrents", false],
     ];
   }
 }

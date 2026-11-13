@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.2 - 2026-11-14
+
+### Fixes
+- The mini card's visual editor now offers the full card's options its detail view uses (`show_speeds`, `show_counts`, `show_controls`, `show_torrents`, `expand_torrents`): they could only be set in YAML.
+
 ## 1.0.1 - 2026-11-13
 
 ### Fixes
