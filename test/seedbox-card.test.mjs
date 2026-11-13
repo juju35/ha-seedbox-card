@@ -18,6 +18,7 @@ const {
   SeedboxCard,
   SeedboxMiniCard,
   SeedboxCardEditor,
+  SeedboxMiniCardEditor,
 } = load("seedbox-card.js", [
   "resolve",
   "findClient",
@@ -33,6 +34,7 @@ const {
   "SeedboxCard",
   "SeedboxMiniCard",
   "SeedboxCardEditor",
+  "SeedboxMiniCardEditor",
 ]);
 
 // Values built in the card's own context have other Array / Object prototypes: compared as plain data.
@@ -364,4 +366,14 @@ test("editor: options left at their default stay out of the YAML", () => {
   ed._form.listeners["value-changed"]({ stopPropagation() {}, detail: { value: { client: "tr", show_speeds: true, expand_torrents: true, title: "" } } });
   deq(ed._config, { client: "tr", expand_torrents: true });
   deq(ed._form.data.show_speeds, true);
+});
+
+test("mini editor: offers the full card's options used by its detail view", () => {
+  const ed = new SeedboxMiniCardEditor();
+  ed._hass = tr;
+  ed._config = {};
+  const names = ed._schema([]).flatMap((s) => (s.schema ? s.schema.map((x) => x.name) : [s.name]));
+  for (const name of ["show_speeds", "show_counts", "show_controls", "show_torrents", "expand_torrents", "zoom", "show_footer"]) assert.ok(names.includes(name), name);
+  const full = new SeedboxCardEditor();
+  for (const [name] of full.constructor.toggles) assert.ok(names.includes(name), `full option ${name}`);
 });

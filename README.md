@@ -44,7 +44,7 @@ Entities are **discovered automatically**, you don't have to pick them one by on
 - Torrents list (Transmission, qBittorrent) with progress, status, time left and ratio, a search field (filters by name), torrents in error first; resume / pause of each Transmission torrent (pausing asks for confirmation)
 - Free space of the download folder in the subtitle (Transmission)
 - Click any value to open its Home Assistant history (more-info dialog)
-- Detail button at the top right of the mini card: it switches to the full card and back; a click anywhere outside the card brings the compact view back
+- Detail button at the top right of the mini card: it switches to the full card and back, the full card's sections being set on the mini card too (visual editor included); a click anywhere outside the card brings the compact view back
 - Visual editor in the dashboard UI for both cards (no YAML needed)
 - Light and dark mode; English, French, German, Spanish, Serbian (Cyrillic and Latin), Italian, Dutch, European Portuguese, Polish, Romanian, Danish, Swedish, Bulgarian, Russian, Ukrainian, Hungarian, Slovak, Czech, Slovenian, Latvian and Greek
 - Single file, no external dependency
@@ -131,6 +131,11 @@ url: http://192.168.1.10:9091
 show_history: true
 show_footer: true
 zoom: true
+show_speeds: true
+show_counts: true
+show_controls: true
+show_torrents: true
+expand_torrents: false
 language: fr
 ```
 
@@ -143,14 +148,14 @@ language: fr
 | `show_title` | both | `true` | Show the title in the header (e.g. `false` under a section heading of your own) |
 | `show_subtitle` | both | `true` | Show the subtitle (client, free space) under the title |
 | `url` | both | Detected | Address opened in a new tab when clicking the header icon. Defaults to the web UI known by the integration (Deluge), else the client's website |
-| `show_speeds` | full | `true` | Download and upload speed tiles |
+| `show_speeds` | both | `true` | Download and upload speed tiles |
 | `show_history` | both | `true` | Speeds of the last 24 hours, from the recorder's history averaged over 5-minute periods, placed on a 24 h time axis with a gap where data is missing. Full card: behind the speed tiles; mini card: behind the speed rows |
-| `show_counts` | full | `true` | Torrent counters and global ratio |
-| `show_controls` | full | `true` | Resume all / pause all and alternative speed buttons, and the resume / pause button of each Transmission torrent |
-| `show_torrents` | full | `true` | Torrents list (Transmission and qBittorrent) |
-| `expand_torrents` | full | `false` | Torrents list expanded when the card loads (click the section title to fold / unfold) |
+| `show_counts` | both | `true` | Torrent counters and global ratio |
+| `show_controls` | both | `true` | Resume all / pause all and alternative speed buttons, and the resume / pause button of each Transmission torrent |
+| `show_torrents` | both | `true` | Torrents list (Transmission and qBittorrent) |
+| `expand_torrents` | both | `false` | Torrents list expanded when the card loads (click the section title to fold / unfold) |
 | `show_footer` | mini | `true` | Torrent counters, ratio and alternative speed in the footer |
-| `zoom` | mini | `true` | Detail button at the top right: switches to the full card and back (`false` removes it) |
+| `zoom` | mini | `true` | Detail button at the top right: switches to the full card and back (`false` removes it). The full card's options (`show_speeds`, `show_counts`, `show_controls`, `show_torrents`, `expand_torrents`) can be set on the mini card too, in YAML or in its visual editor, and apply to that full view |
 | `language` | both | Auto | Force language: `en`, `fr`, `de`, `es`, `sr`, `sr-Latn`, `it`, `nl`, `pt`, `pl`, `ro`, `da`, `sv`, `bg`, `ru`, `uk`, `hu`, `sk`, `cs`, `sl`, `lv` or `el` (auto-detects from HA settings) |
 
 ## Transmission
