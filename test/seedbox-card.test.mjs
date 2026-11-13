@@ -237,6 +237,32 @@ test("folding: a tap elsewhere (pointer), not a drag that ends outside; leaving 
   assert.equal(mini._zoomed, false);
 });
 
+test("no rewrite under a press: drawn by the click, or once released", async () => {
+  const el = new SeedboxCard();
+  el._config = {};
+  el._hass = tr;
+  el._folds = {};
+  let renders = 0;
+  el._render = () => {
+    renders++;
+    return "";
+  };
+  el._onPressStart();
+  el._update();
+  assert.equal(renders, 0, "no rewrite under the pointer");
+  // The click renders at once.
+  el._onClick({ composedPath: () => [{ dataset: { action: "fold", section: "torrents" } }], stopPropagation() {} });
+  assert.equal(renders, 1);
+  // A press with no click (released on a spot with no action, or the browser cancels it): drawn once released.
+  el._onPressStart();
+  el._update();
+  assert.equal(renders, 1);
+  el._onPressEnd();
+  await new Promise((r) => setTimeout(r, 5));
+  assert.equal(renders, 2);
+  assert.equal(el._pressing, false);
+});
+
 test("full card: search filters the torrents by name", () => {
   const el = card(SeedboxCard, tr, { expand_torrents: true });
   el._query = "ISO";
