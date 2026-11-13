@@ -1954,6 +1954,42 @@ const CONFIRM_GUARD_MS = 400;
 // A click inside a dialog (more-info opened from the card, say) is not a click outside the card.
 const inDialog = (ev) => ev.composedPath().some((n) => ["ha-more-info-dialog", "ha-dialog", "dialog"].includes(n.localName));
 
+// "A click elsewhere" is caught on the pointer, not only on the click event: on iOS (Safari and the companion app)
+// a tap on something that is not clickable (the background, an empty spot, a card with no action) sends no click to
+// the page. The handler runs when the press and the release are both outside the card (a slider dragged out of the
+// card does not count), and a scroll does not count (the browser cancels the pointer); keyboard clicks still go
+// through the click event. The handler keeps its own checks (outside of the card, not in a dialog).
+const watchOutside = (card, handler) => {
+  let downOutside = false;
+  const onDown = (ev) => {
+    downOutside = !ev.composedPath().includes(card);
+  };
+  const onUp = (ev) => {
+    if (downOutside) handler(ev);
+    downOutside = false;
+  };
+  const onClick = (ev) => {
+    if (ev.detail === 0) handler(ev);
+  };
+  return {
+    on() {
+      document.addEventListener("pointerdown", onDown, true);
+      document.addEventListener("pointerup", onUp, true);
+      document.addEventListener("click", onClick, true);
+    },
+    off() {
+      document.removeEventListener("pointerdown", onDown, true);
+      document.removeEventListener("pointerup", onUp, true);
+      document.removeEventListener("click", onClick, true);
+    },
+    // A tap (press and release at the same spot), for the tests.
+    tap(ev) {
+      onDown(ev);
+      onUp(ev);
+    },
+  };
+};
+
 // The torrents list is read again this often while it is open (qBittorrent: get_torrents service).
 const TORRENTS_REFRESH = 60000;
 
@@ -1963,6 +1999,25 @@ class SeedboxBase extends HTMLElement {
     this.attachShadow({ mode: "open" });
     this._html = "";
     this.shadowRoot.addEventListener("click", (ev) => this._onClick(ev));
+    // No rewrite of the card between the press and the release: Home Assistant updates the card several times a
+    // second, and a rewrite under the pointer can replace the element pressed, so that the click lands on the card
+    // itself and does nothing. The pending render is done once released (after the click).
+    this._onPressStart = () => {
+      this._pressing = true;
+      window.addEventListener("pointerup", this._onPressEnd, true);
+      window.addEventListener("pointercancel", this._onPressEnd, true);
+    };
+    this._onPressEnd = () => {
+      window.removeEventListener("pointerup", this._onPressEnd, true);
+      window.removeEventListener("pointercancel", this._onPressEnd, true);
+      setTimeout(() => {
+        this._pressing = false;
+        if (!this._dirty) return;
+        this._dirty = false;
+        this._update();
+      }, 0);
+    };
+    this.shadowRoot.addEventListener("pointerdown", this._onPressStart);
     // Keyboard access: Enter or Space on a focusable non-button element acts as a click.
     this.shadowRoot.addEventListener("keydown", (ev) => {
       if ((ev.key === "Enter" || ev.key === " ") && ev.target.getAttribute?.("role") === "button") {
@@ -2011,13 +2066,23 @@ class SeedboxBase extends HTMLElement {
         this._update();
       }
     };
-    document.addEventListener("click", this._onOutside, true);
+    this._outside ??= watchOutside(this, (ev) => this._onOutside(ev));
+    this._outside.on();
     if (this._confirm) window.addEventListener("keydown", this._onKey);
+    // Back on the page after leaving it: rendered again in its default state.
+    this._update();
   }
 
   disconnectedCallback() {
-    document.removeEventListener("click", this._onOutside, true);
+    this._outside?.off();
     window.removeEventListener("keydown", this._onKey);
+    this._pressing = false;
+    window.removeEventListener("pointerup", this._onPressEnd, true);
+    window.removeEventListener("pointercancel", this._onPressEnd, true);
+    // Left (another dashboard view, a conditional card hidden): back to the defaults, so that the card does not come
+    // back unfolded or with its popup open.
+    this._folds = {};
+    this._confirm = null;
   }
 
   setConfig(config) {
@@ -2053,6 +2118,11 @@ class SeedboxBase extends HTMLElement {
 
   _update(sig) {
     if (!this._hass || !this._config) return;
+    // A press in progress: drawn once released (see _onPressStart).
+    if (this._pressing) {
+      this._dirty = true;
+      return;
+    }
     this._sig = sig ?? this._signature();
     let html = this._render();
     if (this._confirm)
@@ -2071,6 +2141,8 @@ class SeedboxBase extends HTMLElement {
   }
 
   _onClick(ev) {
+    // The click ends the press: what it changes is drawn at once.
+    this._pressing = false;
     const path = ev.composedPath();
     const el = path.find((n) => n.dataset && (n.dataset.entity || n.dataset.action));
     if (!this._confirm && Date.now() - (this._confirmClosedAt ?? 0) < CONFIRM_GUARD_MS) {
@@ -2609,13 +2681,16 @@ class SeedboxMiniCard extends SeedboxCard {
   }
 
   connectedCallback() {
+    this._unzoom ??= watchOutside(this, this._onUnzoom);
+    this._unzoom.on();
     super.connectedCallback();
-    document.addEventListener("click", this._onUnzoom, true);
   }
 
   disconnectedCallback() {
     super.disconnectedCallback();
-    document.removeEventListener("click", this._onUnzoom, true);
+    this._unzoom?.off();
+    // Back to the compact view once off the screen.
+    this._zoomed = false;
   }
 
   // A config change (the editor, say) starts over from the compact view.

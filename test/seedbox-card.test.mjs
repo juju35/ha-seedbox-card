@@ -209,6 +209,60 @@ test("full card: torrents list folded by default, a click unfolds it", () => {
   assert.match(el._render(), /class="list"/);
 });
 
+test("folding: a tap elsewhere (pointer), not a drag that ends outside; leaving the page folds back too", () => {
+  const el = card(SeedboxCard, tr);
+  el.connectedCallback();
+  el._action("fold", { section: "torrents" });
+  assert.match(el._render(), /class="list"/);
+  // A slider pressed in the card and released outside of it: nothing folds.
+  el._outside.tap({ composedPath: () => [el] });
+  assert.match(el._render(), /class="list"/);
+  // A tap on a spot that sends no click (iOS): the pointer alone folds it.
+  el._outside.tap({ composedPath: () => [] });
+  assert.doesNotMatch(el._render(), /class="list"/);
+  // Left unfolded and back: folded.
+  el._action("fold", { section: "torrents" });
+  el.disconnectedCallback();
+  el.connectedCallback();
+  assert.doesNotMatch(el._render(), /class="list"/);
+  el.disconnectedCallback();
+  // The mini card folds back to its compact view, on a tap elsewhere and when it leaves the page.
+  const mini = card(SeedboxMiniCard, tr);
+  mini.connectedCallback();
+  mini._zoomed = true;
+  mini._unzoom.tap({ composedPath: () => [] });
+  assert.equal(mini._zoomed, false);
+  mini._zoomed = true;
+  mini.disconnectedCallback();
+  assert.equal(mini._zoomed, false);
+});
+
+test("no rewrite under a press: drawn by the click, or once released", async () => {
+  const el = new SeedboxCard();
+  el._config = {};
+  el._hass = tr;
+  el._folds = {};
+  let renders = 0;
+  el._render = () => {
+    renders++;
+    return "";
+  };
+  el._onPressStart();
+  el._update();
+  assert.equal(renders, 0, "no rewrite under the pointer");
+  // The click renders at once.
+  el._onClick({ composedPath: () => [{ dataset: { action: "fold", section: "torrents" } }], stopPropagation() {} });
+  assert.equal(renders, 1);
+  // A press with no click (released on a spot with no action, or the browser cancels it): drawn once released.
+  el._onPressStart();
+  el._update();
+  assert.equal(renders, 1);
+  el._onPressEnd();
+  await new Promise((r) => setTimeout(r, 5));
+  assert.equal(renders, 2);
+  assert.equal(el._pressing, false);
+});
+
 test("full card: search filters the torrents by name", () => {
   const el = card(SeedboxCard, tr, { expand_torrents: true });
   el._query = "ISO";
