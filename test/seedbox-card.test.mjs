@@ -209,6 +209,34 @@ test("full card: torrents list folded by default, a click unfolds it", () => {
   assert.match(el._render(), /class="list"/);
 });
 
+test("folding: a tap elsewhere (pointer), not a drag that ends outside; leaving the page folds back too", () => {
+  const el = card(SeedboxCard, tr);
+  el.connectedCallback();
+  el._action("fold", { section: "torrents" });
+  assert.match(el._render(), /class="list"/);
+  // A slider pressed in the card and released outside of it: nothing folds.
+  el._outside.tap({ composedPath: () => [el] });
+  assert.match(el._render(), /class="list"/);
+  // A tap on a spot that sends no click (iOS): the pointer alone folds it.
+  el._outside.tap({ composedPath: () => [] });
+  assert.doesNotMatch(el._render(), /class="list"/);
+  // Left unfolded and back: folded.
+  el._action("fold", { section: "torrents" });
+  el.disconnectedCallback();
+  el.connectedCallback();
+  assert.doesNotMatch(el._render(), /class="list"/);
+  el.disconnectedCallback();
+  // The mini card folds back to its compact view, on a tap elsewhere and when it leaves the page.
+  const mini = card(SeedboxMiniCard, tr);
+  mini.connectedCallback();
+  mini._zoomed = true;
+  mini._unzoom.tap({ composedPath: () => [] });
+  assert.equal(mini._zoomed, false);
+  mini._zoomed = true;
+  mini.disconnectedCallback();
+  assert.equal(mini._zoomed, false);
+});
+
 test("full card: search filters the torrents by name", () => {
   const el = card(SeedboxCard, tr, { expand_torrents: true });
   el._query = "ISO";

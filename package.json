@@ -1,6 +1,6 @@
 {
   "name": "ha-seedbox-card",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Lovelace cards for Home Assistant to monitor and control torrent clients (Transmission, qBittorrent, Deluge).",
   "private": true,
   "type": "module",
