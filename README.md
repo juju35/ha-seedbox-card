@@ -8,6 +8,12 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/juju35/ha-seedbox-card/blob/main/LICENSE)
 [![Buy Me a Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-FFDD00?logo=buymeacoffee&logoColor=black)](https://buymeacoffee.com/julienstep9)
 
+<p align="center">
+  <img src="https://raw.githubusercontent.com/juju35/ha-seedbox-card/main/images/transmission.png" alt="Transmission" width="64">&nbsp;&nbsp;
+  <img src="https://raw.githubusercontent.com/juju35/ha-seedbox-card/main/images/qbittorrent.png" alt="qBittorrent" width="64">&nbsp;&nbsp;
+  <img src="https://raw.githubusercontent.com/juju35/ha-seedbox-card/main/images/deluge.png" alt="Deluge" width="64">
+</p>
+
 Lovelace cards for Home Assistant to monitor and control torrent clients: download and upload speeds, torrents, and the alternative speed at a glance.
 
 Supported integrations:
@@ -45,9 +51,9 @@ Entities are **discovered automatically**, you don't have to pick them one by on
 
 | Integration | What the cards show |
 |---|---|
-| [Transmission](https://www.home-assistant.io/integrations/transmission/) (built in) | Status, speeds and totals transferred, free space, active, paused, completed and total torrents, ratio, resume / pause all, turtle mode, torrents list with resume / pause. Details in [Transmission](#transmission) |
-| [qBittorrent](https://www.home-assistant.io/integrations/qbittorrent/) (built in) | Status and connection, speeds and their limits, active, inactive, paused, errored and total torrents, ratio, alternative speed, torrents list (read only). Details in [qBittorrent](#qbittorrent) |
-| [Deluge](https://www.home-assistant.io/integrations/deluge/) (built in) | Status, speeds, downloading and seeding torrents, resume / pause all. Details in [Deluge](#deluge) |
+| <img src="https://raw.githubusercontent.com/juju35/ha-seedbox-card/main/images/transmission.png" alt="" width="16"> [Transmission](https://www.home-assistant.io/integrations/transmission/) (built in) | Status, speeds and totals transferred, free space, active, paused, completed and total torrents, ratio, resume / pause all, turtle mode, torrents list with resume / pause. Details in [Transmission](#transmission) |
+| <img src="https://raw.githubusercontent.com/juju35/ha-seedbox-card/main/images/qbittorrent.png" alt="" width="16"> [qBittorrent](https://www.home-assistant.io/integrations/qbittorrent/) (built in) | Status and connection, speeds and their limits, active, inactive, paused, errored and total torrents, ratio, alternative speed, torrents list (read only). Details in [qBittorrent](#qbittorrent) |
+| <img src="https://raw.githubusercontent.com/juju35/ha-seedbox-card/main/images/deluge.png" alt="" width="16"> [Deluge](https://www.home-assistant.io/integrations/deluge/) (built in) | Status, speeds, downloading and seeding torrents, resume / pause all. Details in [Deluge](#deluge) |
 
 Several clients are supported, and they can be mixed: each one shows in the editor's client list.
 
