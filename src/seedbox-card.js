@@ -119,6 +119,7 @@ const STRINGS = {
     status_downloading: "Downloading",
     status_seeding: "Seeding",
     status_up_down: "Downloading and seeding",
+    status_up_down_short: "Active",
     conn_firewalled: "Firewalled",
     conn_disconnected: "Disconnected",
     state_unavailable: "Unavailable",
@@ -164,6 +165,11 @@ const STRINGS = {
     zoom_helper: "Switches the mini card to the full card and back",
     language: "Language",
     lang_auto: "Automatic",
+    illustration: "Animated illustration",
+    illustration_theme: "Illustration theme",
+    theme_auto: "Automatic (sun or dark theme)",
+    theme_day: "Day",
+    theme_night: "Night",
   },
   fr: {
     download: "Réception",
@@ -185,6 +191,7 @@ const STRINGS = {
     status_downloading: "Téléchargement",
     status_seeding: "Partage",
     status_up_down: "Téléchargement et partage",
+    status_up_down_short: "Actif",
     conn_firewalled: "Derrière un pare-feu",
     conn_disconnected: "Déconnecté",
     state_unavailable: "Indisponible",
@@ -229,6 +236,11 @@ const STRINGS = {
     zoom_helper: "Bascule la mini-carte vers la carte complète et inversement",
     language: "Langue",
     lang_auto: "Automatique",
+    illustration: "Illustration animée",
+    illustration_theme: "Thème de l’illustration",
+    theme_auto: "Automatique (soleil ou thème sombre)",
+    theme_day: "Jour",
+    theme_night: "Nuit",
   },
   de: {
     download: "Download",
@@ -250,6 +262,7 @@ const STRINGS = {
     status_downloading: "Lädt herunter",
     status_seeding: "Seedet",
     status_up_down: "Lädt herunter und seedet",
+    status_up_down_short: "Aktiv",
     conn_firewalled: "Hinter Firewall",
     conn_disconnected: "Getrennt",
     state_unavailable: "Nicht verfügbar",
@@ -294,6 +307,11 @@ const STRINGS = {
     zoom_helper: "Schaltet die Mini-Karte zur vollständigen Karte und zurück",
     language: "Sprache",
     lang_auto: "Automatisch",
+    illustration: "Animierte Illustration",
+    illustration_theme: "Thema der Illustration",
+    theme_auto: "Automatisch (Sonne oder dunkles Design)",
+    theme_day: "Tag",
+    theme_night: "Nacht",
   },
   es: {
     download: "Descarga",
@@ -315,6 +333,7 @@ const STRINGS = {
     status_downloading: "Descargando",
     status_seeding: "Compartiendo",
     status_up_down: "Descargando y compartiendo",
+    status_up_down_short: "Activo",
     conn_firewalled: "Tras un cortafuegos",
     conn_disconnected: "Desconectado",
     state_unavailable: "No disponible",
@@ -359,6 +378,11 @@ const STRINGS = {
     zoom_helper: "Cambia la minitarjeta a la tarjeta completa y viceversa",
     language: "Idioma",
     lang_auto: "Automático",
+    illustration: "Ilustración animada",
+    illustration_theme: "Tema de la ilustración",
+    theme_auto: "Automático (sol o tema oscuro)",
+    theme_day: "Día",
+    theme_night: "Noche",
   },
   sr: {
     download: "Преузимање",
@@ -380,6 +404,7 @@ const STRINGS = {
     status_downloading: "Преузимање",
     status_seeding: "Дељење",
     status_up_down: "Преузимање и дељење",
+    status_up_down_short: "Активно",
     conn_firewalled: "Иза заштитног зида",
     conn_disconnected: "Веза прекинута",
     state_unavailable: "Недоступно",
@@ -424,6 +449,11 @@ const STRINGS = {
     zoom_helper: "Пребацује мини картицу на целу картицу и назад",
     language: "Језик",
     lang_auto: "Аутоматски",
+    illustration: "Анимирана илустрација",
+    illustration_theme: "Тема илустрације",
+    theme_auto: "Аутоматски (сунце или тамна тема)",
+    theme_day: "Дан",
+    theme_night: "Ноћ",
   },
   "sr-Latn": {
     download: "Preuzimanje",
@@ -445,6 +475,7 @@ const STRINGS = {
     status_downloading: "Preuzimanje",
     status_seeding: "Deljenje",
     status_up_down: "Preuzimanje i deljenje",
+    status_up_down_short: "Aktivno",
     conn_firewalled: "Iza zaštitnog zida",
     conn_disconnected: "Veza prekinuta",
     state_unavailable: "Nedostupno",
@@ -489,6 +520,11 @@ const STRINGS = {
     zoom_helper: "Prebacuje mini karticu na celu karticu i nazad",
     language: "Jezik",
     lang_auto: "Automatski",
+    illustration: "Animirana ilustracija",
+    illustration_theme: "Tema ilustracije",
+    theme_auto: "Automatski (sunce ili tamna tema)",
+    theme_day: "Dan",
+    theme_night: "Noć",
   },
   it: {
     download: "Download",
@@ -510,6 +546,7 @@ const STRINGS = {
     status_downloading: "Download in corso",
     status_seeding: "Condivisione",
     status_up_down: "Download e condivisione",
+    status_up_down_short: "Attivo",
     conn_firewalled: "Dietro firewall",
     conn_disconnected: "Disconnesso",
     state_unavailable: "Non disponibile",
@@ -554,6 +591,11 @@ const STRINGS = {
     zoom_helper: "Passa dalla mini scheda alla scheda completa e viceversa",
     language: "Lingua",
     lang_auto: "Automatica",
+    illustration: "Illustrazione animata",
+    illustration_theme: "Tema dell’illustrazione",
+    theme_auto: "Automatico (sole o tema scuro)",
+    theme_day: "Giorno",
+    theme_night: "Notte",
   },
   nl: {
     download: "Download",
@@ -575,6 +617,7 @@ const STRINGS = {
     status_downloading: "Downloaden",
     status_seeding: "Seeden",
     status_up_down: "Downloaden en seeden",
+    status_up_down_short: "Actief",
     conn_firewalled: "Achter firewall",
     conn_disconnected: "Verbroken",
     state_unavailable: "Niet beschikbaar",
@@ -619,6 +662,11 @@ const STRINGS = {
     zoom_helper: "Schakelt de minikaart naar de volledige kaart en terug",
     language: "Taal",
     lang_auto: "Automatisch",
+    illustration: "Geanimeerde illustratie",
+    illustration_theme: "Thema van de illustratie",
+    theme_auto: "Automatisch (zon of donker thema)",
+    theme_day: "Dag",
+    theme_night: "Nacht",
   },
   pt: {
     download: "Transferência",
@@ -640,6 +688,7 @@ const STRINGS = {
     status_downloading: "A transferir",
     status_seeding: "A partilhar",
     status_up_down: "A transferir e a partilhar",
+    status_up_down_short: "Ativo",
     conn_firewalled: "Atrás de firewall",
     conn_disconnected: "Desligado",
     state_unavailable: "Indisponível",
@@ -684,6 +733,11 @@ const STRINGS = {
     zoom_helper: "Muda o minicartão para o cartão completo e vice-versa",
     language: "Idioma",
     lang_auto: "Automático",
+    illustration: "Ilustração animada",
+    illustration_theme: "Tema da ilustração",
+    theme_auto: "Automático (sol ou tema escuro)",
+    theme_day: "Dia",
+    theme_night: "Noite",
   },
   pl: {
     download: "Pobieranie",
@@ -705,6 +759,7 @@ const STRINGS = {
     status_downloading: "Pobieranie",
     status_seeding: "Udostępnianie",
     status_up_down: "Pobieranie i udostępnianie",
+    status_up_down_short: "Aktywny",
     conn_firewalled: "Za zaporą",
     conn_disconnected: "Rozłączony",
     state_unavailable: "Niedostępny",
@@ -749,6 +804,11 @@ const STRINGS = {
     zoom_helper: "Przełącza mini kartę na pełną kartę i z powrotem",
     language: "Język",
     lang_auto: "Automatyczny",
+    illustration: "Animowana ilustracja",
+    illustration_theme: "Motyw ilustracji",
+    theme_auto: "Automatycznie (słońce lub ciemny motyw)",
+    theme_day: "Dzień",
+    theme_night: "Noc",
   },
   ro: {
     download: "Descărcare",
@@ -770,6 +830,7 @@ const STRINGS = {
     status_downloading: "Descărcare",
     status_seeding: "Partajare",
     status_up_down: "Descărcare și partajare",
+    status_up_down_short: "Activ",
     conn_firewalled: "În spatele unui firewall",
     conn_disconnected: "Deconectat",
     state_unavailable: "Indisponibil",
@@ -814,6 +875,11 @@ const STRINGS = {
     zoom_helper: "Comută mini-cardul la cardul complet și înapoi",
     language: "Limbă",
     lang_auto: "Automat",
+    illustration: "Ilustrație animată",
+    illustration_theme: "Tema ilustrației",
+    theme_auto: "Automat (soare sau temă întunecată)",
+    theme_day: "Zi",
+    theme_night: "Noapte",
   },
   da: {
     download: "Download",
@@ -835,6 +901,7 @@ const STRINGS = {
     status_downloading: "Downloader",
     status_seeding: "Seeder",
     status_up_down: "Downloader og seeder",
+    status_up_down_short: "Aktiv",
     conn_firewalled: "Bag firewall",
     conn_disconnected: "Afbrudt",
     state_unavailable: "Utilgængelig",
@@ -879,6 +946,11 @@ const STRINGS = {
     zoom_helper: "Skifter minikortet til hele kortet og tilbage",
     language: "Sprog",
     lang_auto: "Automatisk",
+    illustration: "Animeret illustration",
+    illustration_theme: "Illustrationens tema",
+    theme_auto: "Automatisk (sol eller mørkt tema)",
+    theme_day: "Dag",
+    theme_night: "Nat",
   },
   sv: {
     download: "Nedladdning",
@@ -900,6 +972,7 @@ const STRINGS = {
     status_downloading: "Laddar ner",
     status_seeding: "Seedar",
     status_up_down: "Laddar ner och seedar",
+    status_up_down_short: "Aktiv",
     conn_firewalled: "Bakom brandvägg",
     conn_disconnected: "Frånkopplad",
     state_unavailable: "Inte tillgänglig",
@@ -944,6 +1017,11 @@ const STRINGS = {
     zoom_helper: "Växlar minikortet till hela kortet och tillbaka",
     language: "Språk",
     lang_auto: "Automatiskt",
+    illustration: "Animerad illustration",
+    illustration_theme: "Illustrationens tema",
+    theme_auto: "Automatiskt (sol eller mörkt tema)",
+    theme_day: "Dag",
+    theme_night: "Natt",
   },
   bg: {
     download: "Изтегляне",
@@ -965,6 +1043,7 @@ const STRINGS = {
     status_downloading: "Изтегляне",
     status_seeding: "Споделяне",
     status_up_down: "Изтегляне и споделяне",
+    status_up_down_short: "Активно",
     conn_firewalled: "Зад защитна стена",
     conn_disconnected: "Прекъсната връзка",
     state_unavailable: "Недостъпно",
@@ -1009,6 +1088,11 @@ const STRINGS = {
     zoom_helper: "Превключва мини картата към цялата карта и обратно",
     language: "Език",
     lang_auto: "Автоматично",
+    illustration: "Анимирана илюстрация",
+    illustration_theme: "Тема на илюстрацията",
+    theme_auto: "Автоматично (слънце или тъмна тема)",
+    theme_day: "Ден",
+    theme_night: "Нощ",
   },
   ru: {
     download: "Загрузка",
@@ -1030,6 +1114,7 @@ const STRINGS = {
     status_downloading: "Загрузка",
     status_seeding: "Раздача",
     status_up_down: "Загрузка и раздача",
+    status_up_down_short: "Активно",
     conn_firewalled: "За брандмауэром",
     conn_disconnected: "Отключено",
     state_unavailable: "Недоступно",
@@ -1074,6 +1159,11 @@ const STRINGS = {
     zoom_helper: "Переключает мини-карточку на полную и обратно",
     language: "Язык",
     lang_auto: "Автоматически",
+    illustration: "Анимированная иллюстрация",
+    illustration_theme: "Тема иллюстрации",
+    theme_auto: "Автоматически (солнце или тёмная тема)",
+    theme_day: "День",
+    theme_night: "Ночь",
   },
   uk: {
     download: "Завантаження",
@@ -1095,6 +1185,7 @@ const STRINGS = {
     status_downloading: "Завантаження",
     status_seeding: "Роздача",
     status_up_down: "Завантаження і роздача",
+    status_up_down_short: "Активно",
     conn_firewalled: "За брандмауером",
     conn_disconnected: "Від'єднано",
     state_unavailable: "Недоступно",
@@ -1139,6 +1230,11 @@ const STRINGS = {
     zoom_helper: "Перемикає міні-картку на повну і назад",
     language: "Мова",
     lang_auto: "Автоматично",
+    illustration: "Анімована ілюстрація",
+    illustration_theme: "Тема ілюстрації",
+    theme_auto: "Автоматично (сонце або темна тема)",
+    theme_day: "День",
+    theme_night: "Ніч",
   },
   hu: {
     download: "Letöltés",
@@ -1160,6 +1256,7 @@ const STRINGS = {
     status_downloading: "Letöltés",
     status_seeding: "Megosztás",
     status_up_down: "Letöltés és megosztás",
+    status_up_down_short: "Aktív",
     conn_firewalled: "Tűzfal mögött",
     conn_disconnected: "Leválasztva",
     state_unavailable: "Nem elérhető",
@@ -1204,6 +1301,11 @@ const STRINGS = {
     zoom_helper: "A mini kártyát a teljes kártyára váltja és vissza",
     language: "Nyelv",
     lang_auto: "Automatikus",
+    illustration: "Animált illusztráció",
+    illustration_theme: "Az illusztráció témája",
+    theme_auto: "Automatikus (nap vagy sötét téma)",
+    theme_day: "Nappal",
+    theme_night: "Éjszaka",
   },
   sk: {
     download: "Sťahovanie",
@@ -1225,6 +1327,7 @@ const STRINGS = {
     status_downloading: "Sťahovanie",
     status_seeding: "Zdieľanie",
     status_up_down: "Sťahovanie a zdieľanie",
+    status_up_down_short: "Aktívne",
     conn_firewalled: "Za firewallom",
     conn_disconnected: "Odpojený",
     state_unavailable: "Nedostupné",
@@ -1269,6 +1372,11 @@ const STRINGS = {
     zoom_helper: "Prepne mini kartu na celú kartu a späť",
     language: "Jazyk",
     lang_auto: "Automaticky",
+    illustration: "Animovaná ilustrácia",
+    illustration_theme: "Téma ilustrácie",
+    theme_auto: "Automaticky (slnko alebo tmavá téma)",
+    theme_day: "Deň",
+    theme_night: "Noc",
   },
   cs: {
     download: "Stahování",
@@ -1290,6 +1398,7 @@ const STRINGS = {
     status_downloading: "Stahování",
     status_seeding: "Sdílení",
     status_up_down: "Stahování a sdílení",
+    status_up_down_short: "Aktivní",
     conn_firewalled: "Za firewallem",
     conn_disconnected: "Odpojeno",
     state_unavailable: "Nedostupné",
@@ -1334,6 +1443,11 @@ const STRINGS = {
     zoom_helper: "Přepne mini kartu na celou kartu a zpět",
     language: "Jazyk",
     lang_auto: "Automaticky",
+    illustration: "Animovaná ilustrace",
+    illustration_theme: "Motiv ilustrace",
+    theme_auto: "Automaticky (slunce nebo tmavý motiv)",
+    theme_day: "Den",
+    theme_night: "Noc",
   },
   sl: {
     download: "Prenos",
@@ -1355,6 +1469,7 @@ const STRINGS = {
     status_downloading: "Prenašanje",
     status_seeding: "Deljenje",
     status_up_down: "Prenašanje in deljenje",
+    status_up_down_short: "Aktivno",
     conn_firewalled: "Za požarnim zidom",
     conn_disconnected: "Prekinjeno",
     state_unavailable: "Ni na voljo",
@@ -1399,6 +1514,11 @@ const STRINGS = {
     zoom_helper: "Preklopi mini kartico na celotno kartico in nazaj",
     language: "Jezik",
     lang_auto: "Samodejno",
+    illustration: "Animirana ilustracija",
+    illustration_theme: "Tema ilustracije",
+    theme_auto: "Samodejno (sonce ali temna tema)",
+    theme_day: "Dan",
+    theme_night: "Noč",
   },
   lv: {
     download: "Lejupielāde",
@@ -1420,6 +1540,7 @@ const STRINGS = {
     status_downloading: "Lejupielāde",
     status_seeding: "Koplietošana",
     status_up_down: "Lejupielāde un koplietošana",
+    status_up_down_short: "Aktīvs",
     conn_firewalled: "Aiz ugunsmūra",
     conn_disconnected: "Atvienots",
     state_unavailable: "Nav pieejams",
@@ -1464,6 +1585,11 @@ const STRINGS = {
     zoom_helper: "Pārslēdz mini kartīti uz pilno kartīti un atpakaļ",
     language: "Valoda",
     lang_auto: "Automātiski",
+    illustration: "Animēta ilustrācija",
+    illustration_theme: "Ilustrācijas motīvs",
+    theme_auto: "Automātiski (saule vai tumšā tēma)",
+    theme_day: "Diena",
+    theme_night: "Nakts",
   },
   el: {
     download: "Λήψη",
@@ -1485,6 +1611,7 @@ const STRINGS = {
     status_downloading: "Λήψη",
     status_seeding: "Διαμοιρασμός",
     status_up_down: "Λήψη και διαμοιρασμός",
+    status_up_down_short: "Ενεργό",
     conn_firewalled: "Πίσω από τείχος προστασίας",
     conn_disconnected: "Αποσυνδεδεμένο",
     state_unavailable: "Μη διαθέσιμο",
@@ -1529,6 +1656,11 @@ const STRINGS = {
     zoom_helper: "Αλλάζει τη μίνι κάρτα στην πλήρη κάρτα και πίσω",
     language: "Γλώσσα",
     lang_auto: "Αυτόματα",
+    illustration: "Κινούμενη εικονογράφηση",
+    illustration_theme: "Θέμα εικονογράφησης",
+    theme_auto: "Αυτόματο (ήλιος ή σκούρο θέμα)",
+    theme_day: "Ημέρα",
+    theme_night: "Νύχτα",
   },
 };
 
@@ -1752,6 +1884,13 @@ const morph = (root, html) => {
   patchChildren(root, tpl.content);
 };
 
+// The whole width of an element's text in its own font, an ellipsised one included.
+const textWidth = (el) => {
+  const range = document.createRange();
+  range.selectNodeContents(el);
+  return range.getBoundingClientRect().width;
+};
+
 const svgIcon = (path, cls = "") => `<svg class="icon ${cls}" viewBox="0 0 24 24"><path d="${path}"/></svg>`;
 
 // ---------------------------------------------------------------------------
@@ -1869,6 +2008,168 @@ function spark(points, end, max) {
 }
 
 // ---------------------------------------------------------------------------
+// Illustrated header: the seedbox (a server rack) in the middle of its swarm of peers, on a 200 × 80 picture at the
+// right of a 90 px banner, over a 10 px soil strip. Packets travel along the links: green into the server while it
+// downloads, blue out to the peers while it seeds. Paused or idle, nothing moves and the server's lights are off;
+// disconnected, its lights blink red.
+// ---------------------------------------------------------------------------
+
+// Peers [x, y] and the server's centre.
+const SB_PEERS = [
+  [70, 14],
+  [118, 8],
+  [176, 12],
+  [52, 42],
+  [190, 46],
+  [96, 68],
+  [160, 70],
+  [64, 70],
+  [140, 30],
+];
+const SB_SRV = [124, 44];
+// Peer-to-peer links besides the ones to the server.
+const SB_MESH = [
+  [0, 1],
+  [3, 7],
+  [2, 4],
+  [5, 6],
+];
+
+// The picture's state from the header status (class and label key): down, up, both (packets), paused or error.
+const sceneState = (cls, key) => {
+  if (cls === "crit") return "error";
+  if (key === "status_downloading") return "down";
+  if (key === "status_seeding") return "up";
+  if (key === "status_up_down") return "both";
+  return "paused";
+};
+
+// Night picture: forced by illustration_theme, else the sun below the horizon or Home Assistant's dark mode (a dark
+// theme takes the night picture even while the sun is up; an unknown sun leaves the dark mode alone to decide).
+const isNight = (hass, config) => {
+  const theme = config.illustration_theme;
+  if (theme === "night") return true;
+  if (theme === "day") return false;
+  return hass?.states?.["sun.sun"]?.state === "below_horizon" || !!hass?.themes?.darkMode;
+};
+
+// The picture. `uid` keeps each card's ids apart on a page with several cards; `warn` turns one light amber.
+const sbSceneSvg = (state, uid, warn) => {
+  const [sx, sy] = SB_SRV;
+  // Background dots, spread over the picture (no random: the same picture on every render).
+  const dots = Array.from({ length: 40 }, (_, i) => `<circle cx="${(i * 37) % 200}" cy="${(i * 23) % 80}" r=".7"/>`).join("");
+  const links = [
+    ...SB_PEERS.map(([x, y]) => `<line x1="${x}" y1="${y}" x2="${sx}" y2="${sy}"/>`),
+    ...SB_MESH.map(([a, b]) => `<line x1="${SB_PEERS[a][0]}" y1="${SB_PEERS[a][1]}" x2="${SB_PEERS[b][0]}" y2="${SB_PEERS[b][1]}"/>`),
+  ].join("");
+  // Packets: down = peer -> server (green), up = server -> peer (blue); both alternates.
+  const dirOf = (i) => (state === "both" ? (i % 2 ? "up" : "dn") : state === "down" ? "dn" : state === "up" ? "up" : null);
+  const packets = SB_PEERS.map(([x, y], i) => {
+    const d = dirOf(i);
+    if (!d) return "";
+    const path = d === "up" ? `M${sx} ${sy} L${x} ${y}` : `M${x} ${y} L${sx} ${sy}`;
+    return `<circle class="sb-pkt ${d} pk${i}" r="1.8" style="offset-path:path('${path}')"/>`;
+  }).join("");
+  const peers = SB_PEERS.map(
+    ([x, y]) =>
+      `<g transform="translate(${x} ${y}) scale(1.25)"><circle class="sb-peer" r="4.6"/><circle class="sb-fig" cy="-1" r="1.4"/><path class="sb-fig" d="M-2.4 2.4a2.4 2 0 0 1 4.8 0"/></g>`
+  ).join("");
+  const led = (i) => {
+    const c = state === "error" ? "err" : state === "paused" ? "off" : warn && i === 0 ? "warn" : i === 1 ? "up" : "dn";
+    return `<circle class="sb-led ${c}" cx="-7" cy="${-8.5 + i * 9}" r="1" style="animation-delay:${i * 0.3}s"/>`;
+  };
+  const bays = [0, 1, 2]
+    .map((i) => `<rect class="sb-bay" x="-10" y="${-12 + i * 9}" width="20" height="7" rx="1.2"/>${led(i)}<rect class="sb-slot" x="-3" y="${-9.2 + i * 9}" width="10" height="1.4" rx=".7"/>`)
+    .join("");
+  // Paused: a pause sign on the server; disconnected: an exclamation mark.
+  const mark =
+    state === "paused"
+      ? `<g class="sb-mark paused" transform="translate(13 -15)"><circle r="5"/><path d="M-1.6 -2.2v4.4M1.6 -2.2v4.4"/></g>`
+      : state === "error"
+        ? `<g class="sb-mark error" transform="translate(13 -15)"><circle r="5"/><path d="M0 -2.6v2.8M0 2.1v.4"/></g>`
+        : "";
+  return `<svg class="sb-scene ${state}" viewBox="0 0 200 80" preserveAspectRatio="xMaxYMax meet" aria-hidden="true" focusable="false">
+    <defs><filter id="sb-glow-${uid}" x="-1" y="-1" width="3" height="3"><feGaussianBlur stdDeviation=".8"/></filter></defs>
+    <g class="sb-dots">${dots}</g>
+    <g class="sb-links">${links}</g>
+    <g class="sb-pkts" filter="url(#sb-glow-${uid})">${packets}</g><g class="sb-pkts">${packets}</g>
+    ${peers}
+    <g transform="translate(${sx} ${sy}) scale(1.35)"><rect class="sb-srv" x="-13" y="-15" width="26" height="30" rx="3"/>${bays}${mark}</g>
+  </svg><div class="sb-ground" aria-hidden="true"></div>`;
+};
+
+// The banner: plain background with the picture at the right and the soil strip, day and night.
+const SCENE_STYLE = `
+  .banner { position: relative; overflow: hidden; height: 90px; --sb-g: 10px; --sb-scene-w: min(200px, 46cqw);
+            background: #eef2f8; color: #0d2a45; --sb-muted: #3b5b78; }
+  .banner.night { background: #1c2230; color: #fff; --sb-muted: rgba(255,255,255,.78); }
+  .sb-scene { position: absolute; right: 0; bottom: var(--sb-g); height: calc(100% - var(--sb-g)); width: var(--sb-scene-w); }
+  .sb-ground { position: absolute; left: 0; right: 0; bottom: 0; height: var(--sb-g);
+               background: repeating-linear-gradient(90deg, #8a5a3a 0 16px, #7a4e32 16px 18px); box-shadow: inset 0 2px 0 #5aa83d; }
+  .night .sb-ground { background: repeating-linear-gradient(90deg, #3a2c22 0 16px, #30241c 16px 18px); box-shadow: inset 0 2px 0 #1f4a2a; }
+  .sb-dots { fill: #dde6f2; } .night .sb-dots { fill: #26324a; }
+  .sb-links { stroke: #c4d0e0; stroke-width: .8; } .night .sb-links { stroke: #3a4a66; }
+  .paused .sb-links, .error .sb-links { opacity: .6; } .error .sb-links { stroke-dasharray: 2 2; }
+  .sb-peer { fill: #fff; stroke: #a9b8cc; } .night .sb-peer { fill: #2a3446; stroke: #4a5a7a; }
+  .sb-fig { fill: #7d8ca3; } .night .sb-fig { fill: #8fa3c4; }
+  .sb-srv { fill: #2a3038; } .night .sb-srv { fill: #2e3746; }
+  .sb-bay { fill: #3d4552; } .night .sb-bay { fill: #3a4456; }
+  .sb-slot { fill: #5c6678; }
+  .sb-led.dn { fill: #43c463; } .sb-led.up { fill: #2f80ed; } .sb-led.warn { fill: #ffa600; } .sb-led.err { fill: #e5484d; } .sb-led.off { fill: #6b7587; }
+  .sb-led.dn, .sb-led.up, .sb-led.warn, .sb-led.err { animation: sb-blink 1.2s steps(2) infinite; }
+  .sb-mark circle { stroke: #fff; stroke-width: 1; } .night .sb-mark circle { stroke: #1c2230; }
+  .sb-mark path { stroke: #fff; stroke-width: 1.3; stroke-linecap: round; fill: none; }
+  .sb-mark.paused circle { fill: #8a95a5; } .sb-mark.error circle { fill: #e5484d; }
+  .sb-pkt { offset-distance: 50%; offset-rotate: 0deg; animation: sb-pkt 2.4s linear infinite; }
+  .sb-pkt.dn { fill: #43a047; } .sb-pkt.up { fill: #2f80ed; }
+  .night .sb-pkt.dn { fill: #5bd16a; } .night .sb-pkt.up { fill: #5aa2ff; }
+  .sb-pkts[filter] { opacity: .55; }
+  .pk1 { animation-delay: -.3s; } .pk2 { animation-delay: -.6s; } .pk3 { animation-delay: -.9s; } .pk4 { animation-delay: -1.2s; }
+  .pk5 { animation-delay: -1.5s; } .pk6 { animation-delay: -1.8s; } .pk7 { animation-delay: -2.1s; } .pk8 { animation-delay: -2.4s; }
+  @keyframes sb-pkt { from { offset-distance: 0%; opacity: 0; } 15% { opacity: 1; } 85% { opacity: 1; } to { offset-distance: 100%; opacity: 0; } }
+  @keyframes sb-blink { 50% { opacity: .25; } }
+  /* The text on the left, over the plain background; it stops where the picture starts. */
+  .htext { position: absolute; z-index: 1; left: 0; top: 0; bottom: var(--sb-g); right: calc(var(--sb-scene-w) + 4px);
+           display: flex; align-items: center; gap: 10px; padding: 8px 4px 8px 14px; min-width: 0; box-sizing: border-box; }
+  .htext .titles { flex: 1 1 auto; min-width: 0; display: flex; flex-flow: row wrap; align-items: center; column-gap: 8px; row-gap: 1px; }
+  .htext .titles > * { flex: 1 0 100%; min-width: 0; }
+  /* The title, then its status pill 8 px after it, centred on it, while the whole title and the pill's whole label fit
+     on that row; otherwise (measured by the card, see _fitPill) the title takes its whole line and the pill goes under
+     the subtitle (.below), its dot alone (.pill-dot) when even then the text would run into the ground strip. */
+  .htext .trow { display: flex; align-items: center; gap: 8px; min-width: 0; }
+  .htext .name { flex: 0 1 auto; min-width: 0; font-size: 16px; font-weight: 500; }
+  .htext .chip { flex: none; min-width: 0; max-width: none; overflow: hidden; line-height: 16px; box-sizing: border-box; white-space: nowrap;
+                 background: color-mix(in srgb, var(--c) 18%, rgba(255,255,255,.78)); color: color-mix(in srgb, var(--c) 45%, #0d2a45); }
+  .banner.night .htext .chip { background: color-mix(in srgb, var(--c) 30%, rgba(8,18,38,.55)); color: color-mix(in srgb, var(--c) 35%, #ffffff); }
+  .htext .chip .dot { width: 7px; height: 7px; }
+  .htext .sub { font-size: 12px; line-height: 15px; color: var(--sb-muted); opacity: .85; }
+  .htext .titles.below { display: flex; }
+  .htext .titles.below .trow { display: contents; }
+  .htext .titles.below .name { flex: 1 0 100%; }
+  .htext .titles.below .sub { order: 1; }
+  .htext .titles.below .chip { order: 2; margin-top: 2px; max-width: 100%; }
+  .htext .titles.pill-dot .chip { padding: 5px; }
+  /* Under 200 px only its dot shows (its text stays its tooltip and accessible name). */
+  @container (max-width: 200px) { .htext .chip { flex: none; padding: 5px; } .htext .chip .chip-label { display: none; } }
+  .banner .logo { background: rgba(255,255,255,.62); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--c) 22%, transparent); }
+  .banner.night .logo { background: rgba(255,255,255,.12); box-shadow: inset 0 0 0 1px rgba(255,255,255,.14); }
+  .banner.night .logo.idle { --c: #9aa3b0; }
+  /* The mini card's detail button: round, frosted, in the top right corner of the banner. */
+  .banner .zoom { position: absolute; z-index: 2; top: 5px; right: 5px; margin: 0; color: #33506b; background: rgba(255,255,255,.55);
+                  box-shadow: inset 0 0 0 1px rgba(255,255,255,.7); backdrop-filter: blur(4px); }
+  .banner .zoom:hover { background: rgba(255,255,255,.75); color: #33506b; }
+  .banner.night .zoom { color: #fff; background: rgba(255,255,255,.12); box-shadow: inset 0 0 0 1px rgba(255,255,255,.2); }
+  .banner.night .zoom:hover { background: rgba(255,255,255,.22); color: #fff; }
+  .banner + .content { padding-top: 12px; }
+  /* Narrow card: no room for the picture beside the title and its pill, the background and the strip stay. */
+  @container (max-width: 300px) {
+    .sb-scene { display: none; }
+    .htext { right: 0; }
+    :host([mini]) .htext { right: 30px; }
+  }
+`;
+
+// ---------------------------------------------------------------------------
 // Shared styles
 // ---------------------------------------------------------------------------
 
@@ -1897,18 +2198,32 @@ const BASE_STYLE = `
           color: var(--c, var(--sb-ok)); background: color-mix(in srgb, var(--c, var(--sb-ok)) 16%, transparent); }
   .logo .icon { width: 24px; height: 24px; fill: currentColor; }
   .titles { flex: 1 1 0; min-width: 5ch; }
+  /* The status pill right after the title, centred on it, while the title stays whole and the pill's whole label fits
+     beside it; otherwise (measured by the card, see _fitPill) the pill on its own line under a one-line subtitle, and
+     if even that would not fit in the header, its dot alone (the label stays in title and aria-label). */
+  .titles { display: flex; flex-direction: column; }
+  .trow { display: flex; align-items: center; gap: 8px; min-width: 0; }
+  .trow .name { flex: 0 1 auto; min-width: 0; }
+  .trow .chip { flex: none; max-width: none; }
+  .titles.below { display: grid; grid-template-columns: minmax(0, 1fr); justify-items: start; }
+  .titles.below .trow { display: contents; }
+  .titles.below .name { max-width: 100%; }
+  .titles.below > .sub { justify-self: stretch; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .titles.below .chip { grid-row: 3; max-width: 100%; }
+  .titles.pill-dot .chip { padding: 4px; }
+  .titles.pill-dot .chip .chip-label { display: none; }
   :host([hide-title]) .titles > .name, :host([hide-subtitle]) .titles > .sub { display: none; }
-  .header .chip { flex: 0 1 auto; min-width: 0; overflow: hidden; line-height: 16px; box-sizing: border-box; }
+  .header .chip { flex: none; min-width: 0; overflow: hidden; line-height: 16px; box-sizing: border-box; }
   /* Unavailable / unknown: the dot stays grey, the text takes the primary text colour (contrast). */
   .header .chip.idle { color: var(--primary-text-color); }
   .chip-label { min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  /* With a subtitle, the chip stays on the title's line, not centred on the two lines. */
-  .header:has(.sub) .titles { align-self: flex-start; }
-  .header:has(.sub) .chip { align-self: flex-start; margin-top: 1px; }
   @container (max-width: 239px) {
     .header { gap: 6px; }
     :host(:not([mini])) .header .logo { height: 32px; width: 32px; }
     :host(:not([mini])) .header .logo .icon { width: 18px; height: 18px; }
+  }
+  /* Under 200 px only the chip's dot shows (its text stays its tooltip and accessible name). */
+  @container (max-width: 200px) {
     .header .chip { flex: none; padding: 6px; }
     .header .chip .chip-label { display: none; }
   }
@@ -1993,11 +2308,15 @@ const watchOutside = (card, handler) => {
 // The torrents list is read again this often while it is open (qBittorrent: get_torrents service).
 const TORRENTS_REFRESH = 60000;
 
+let sbUid = 0;
+
 class SeedboxBase extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
     this._html = "";
+    // Keeps the ids of each card's picture apart on a page with several cards.
+    this._uid = ++sbUid;
     this.shadowRoot.addEventListener("click", (ev) => this._onClick(ev));
     // No rewrite of the card between the press and the release: Home Assistant updates the card several times a
     // second, and a rewrite under the pointer can replace the element pressed, so that the click lands on the card
@@ -2071,11 +2390,25 @@ class SeedboxBase extends HTMLElement {
     if (this._confirm) window.addEventListener("keydown", this._onKey);
     // Back on the page after leaving it: rendered again in its default state.
     this._update();
+    // A new width (or the web font loaded): the status pill is fitted again, in the next frame.
+    if (typeof ResizeObserver === "function") {
+      this._resize ??= new ResizeObserver((entries) => {
+        const w = Math.round(entries.at(-1).contentRect.width);
+        if (w === this._fitWidth) return;
+        this._fitWidth = w;
+        cancelAnimationFrame(this._fitFrame);
+        this._fitFrame = requestAnimationFrame(() => this._fitPill());
+      });
+      this._resize.observe(this);
+    }
+    document.fonts?.ready?.then(() => this._fitPill());
   }
 
   disconnectedCallback() {
     this._outside?.off();
     window.removeEventListener("keydown", this._onKey);
+    this._resize?.disconnect();
+    this._fitWidth = null;
     this._pressing = false;
     window.removeEventListener("pointerup", this._onPressEnd, true);
     window.removeEventListener("pointercancel", this._onPressEnd, true);
@@ -2110,7 +2443,8 @@ class SeedboxBase extends HTMLElement {
   // What the render depends on: registries, language, the client's states, the fetched history and torrents.
   _signature() {
     const h = this._hass;
-    const sig = [h.entities, h.devices, h.language, h.locale?.language];
+    // The sun and the theme: the illustration's night picture.
+    const sig = [h.entities, h.devices, h.language, h.locale?.language, h.states?.["sun.sun"]?.state, h.themes?.darkMode];
     const { client } = findClient(h, this._config);
     if (client) for (const id of Object.values(client.entities)) sig.push(h.states[id]);
     return sig;
@@ -2130,6 +2464,32 @@ class SeedboxBase extends HTMLElement {
     if (html !== this._html) {
       this._html = html;
       morph(this.shadowRoot, html);
+    }
+    this._fitPill();
+  }
+
+  // The status pill stays right after the title only while the whole title and the pill's whole label fit on that
+  // row; otherwise it takes a line of its own under the subtitle (.below), and when even then the title, the subtitle
+  // and the pill would not fit above the banner's ground strip, it keeps its dot alone (.pill-dot). Measured in the
+  // real fonts, so that every language and title length gets its own answer.
+  _fitPill() {
+    for (const t of this.shadowRoot?.querySelectorAll?.(".titles") || []) {
+      const row = t.querySelector(":scope > .trow");
+      const chip = row?.querySelector(":scope > .chip");
+      if (!chip?.getBoundingClientRect) continue;
+      t.classList.remove("below", "pill-dot");
+      const name = row.querySelector(":scope > .name");
+      const gap = parseFloat(getComputedStyle(row).columnGap) || 0;
+      const title = name ? textWidth(name) + gap : 0;
+      const pill = chip.getBoundingClientRect().width;
+      if (title + pill <= row.getBoundingClientRect().width) continue;
+      t.classList.add("below");
+      const r = t.getBoundingClientRect();
+      const banner = t.closest(".banner");
+      const box = banner?.getBoundingClientRect();
+      const floor = banner?.querySelector(".sb-ground")?.getBoundingClientRect().top ?? box?.bottom;
+      const tall = box && (r.bottom > floor + 0.5 || r.top < box.top - 0.5);
+      if (tall || pill > r.width + 0.5) t.classList.add("pill-dot");
     }
   }
 
@@ -2242,9 +2602,12 @@ class SeedboxBase extends HTMLElement {
     if (conn === "disconnected") return ["crit", "conn_disconnected", e.connection];
     const st = this._s(e.status);
     if (!known(st)) return ["idle", `state_${st?.state === "unknown" ? "unknown" : "unavailable"}`, e.status];
+    // Everything paused (the client's on/off switch is off).
+    if (this._s(e.power)?.state === "off") return ["idle", "t_paused", e.power];
     if (conn === "firewalled") return ["warn", "conn_firewalled", e.connection];
     const key = `status_${clientStatus(st.state)}`;
-    return ["ok", key in STRINGS.en ? key : "status_idle", e.status];
+    // Idle: grey, as the header icon of the other ha-* cards when nothing runs.
+    return key in STRINGS.en && key !== "status_idle" ? ["ok", key, e.status] : ["idle", "status_idle", e.status];
   }
 
   _header(client) {
@@ -2255,20 +2618,39 @@ class SeedboxBase extends HTMLElement {
     const free = bytesOf(this._s(client.entities.free));
     // The client's name in the subtitle only when the title does not already say it.
     const sub = [(c.title || client.name) === srcName ? null : srcName, free !== null ? this._t("free", { size: fmtBytes(free, this._loc()) }) : null].filter(Boolean);
-    return `
-      <div class="header">
-        <a class="logo ${cls}" href="${esc(this._logoUrl(client))}" target="_blank" rel="noopener noreferrer" title="${esc(srcName)}" aria-label="${esc(srcName)}">${svgIcon(ICONS.seedbox)}</a>
-        <div class="titles">
-          <div class="name">${esc(c.title || client.name)}</div>
-          ${sub.length ? `<div class="sub">${esc(sub.join(" · "))}</div>` : ""}
-        </div>
-        ${
-          id
-            ? `<span class="chip clickable ${cls}" role="button" tabindex="0" data-entity="${esc(id)}" title="${chip}" aria-label="${chip}"><span class="dot"></span><span class="chip-label">${chip}</span></span>`
-            : ""
-        }
+    const logo = `<a class="logo ${cls}" href="${esc(this._logoUrl(client))}" target="_blank" rel="noopener noreferrer" title="${esc(srcName)}" aria-label="${esc(srcName)}">${svgIcon(ICONS.seedbox)}</a>`;
+    const name = `<div class="name">${esc(c.title || client.name)}</div>`;
+    if (c.illustration !== false) {
+      // Illustrated banner: the title and its status pill on the first line, the subtitle under them; the swarm on
+      // the right.
+      // "Downloading and seeding" is too long for the pill: "Active" there, the whole status as its tooltip and label.
+      const short = key === "status_up_down" ? esc(this._t("status_up_down_short")) : chip;
+      const pill = `<span class="chip status${id ? " clickable" : ""} ${cls}"${id ? ` role="button" tabindex="0" data-entity="${esc(id)}"` : ""} title="${chip}" aria-label="${chip}"><span class="dot"></span><span class="chip-label">${short}</span></span>`;
+      const night = isNight(this._hass, c) ? " night" : "";
+      return `
+      <div class="banner${night}">${sbSceneSvg(sceneState(cls, key), this._uid, cls === "warn")}
+        <div class="htext">${logo}<div class="titles"><div class="trow">${name}${pill}</div>${sub.length ? `<div class="sub" title="${esc(sub.join(" · "))}">${esc(sub.join(" · "))}</div>` : ""}</div></div>
         ${this._zoomButton()}
       </div>`;
+    }
+    return `
+      <div class="header">
+        ${logo}
+        <div class="titles">
+          <div class="trow">${name}${
+            id
+              ? `<span class="chip clickable ${cls}" role="button" tabindex="0" data-entity="${esc(id)}" title="${chip}" aria-label="${chip}"><span class="dot"></span><span class="chip-label">${chip}</span></span>`
+              : ""
+          }</div>
+          ${sub.length ? `<div class="sub" title="${esc(sub.join(" · "))}">${esc(sub.join(" · "))}</div>` : ""}
+        </div>
+        ${this._zoomButton()}
+      </div>`;
+  }
+
+  // The illustration's styles, only when it is shown.
+  _sceneStyle() {
+    return this._config.illustration === false ? "" : SCENE_STYLE;
   }
 
   // Button at the far right of the header: only the mini card has one.
@@ -2372,8 +2754,9 @@ const FULL_STYLE = `
   .speed { position: relative; overflow: hidden; border-radius: 12px; padding: 10px 12px; min-width: 0;
            background: var(--secondary-background-color, rgba(127,127,127,.08)); }
   .speed > :not(.spark) { position: relative; }
-  /* The 24 h curve in the lower half of the tile, under the rate. */
-  .speed .spark { position: absolute; left: 0; bottom: 0; width: 100%; height: 55%; pointer-events: none; }
+  /* The 24 h curve in its own 24 px band under the rate and its total, never behind the text. */
+  .speed:has(> .spark) { padding-bottom: 34px; }
+  .speed .spark { position: absolute; inset: auto 0 0; width: 100%; height: 24px; pointer-events: none; }
   .speed .k { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--secondary-text-color); }
   .speed .k .icon { color: var(--c); width: 16px; height: 16px; }
   .speed .v { font-size: 22px; font-weight: 500; line-height: 1.3; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -2381,6 +2764,7 @@ const FULL_STYLE = `
   .speed .d { font-size: 11px; color: var(--secondary-text-color); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-height: 14px; }
   @container (max-width: 279px) {
     .speed { padding: 8px; }
+    .speed:has(> .spark) { padding-bottom: 32px; }
     .speed .v { font-size: 17px; }
     .speed .v small { font-size: 11px; }
   }
@@ -2475,7 +2859,7 @@ class SeedboxCard extends SeedboxBase {
     if (c.show_counts !== false) parts.push(this._countTiles(client));
     if (c.show_controls !== false) parts.push(this._actions(client));
     if (c.show_torrents !== false) parts.push(this._torrents(client));
-    return `<style>${BASE_STYLE}${DIALOG_STYLE}${FULL_STYLE}${MOTION_STYLE}</style>
+    return `<style>${BASE_STYLE}${DIALOG_STYLE}${FULL_STYLE}${this._sceneStyle()}${MOTION_STYLE}</style>
       <ha-card>
         ${this._header(client)}
         <div class="content">${parts.filter(Boolean).join("")}</div>
@@ -2645,13 +3029,15 @@ const MINI_STYLE = `
   .metric { display: grid; grid-template-columns: 18px minmax(0, 86px) minmax(24px, 1fr) minmax(56px, auto); align-items: center; gap: 8px; font-size: 13px;
             position: relative; }
   .metric > :not(.spark) { position: relative; }
-  .metric .spark { position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; }
+  /* 24 h curve behind the bar only: it never crosses the label or the value. */
+  .metric .spark { position: absolute; grid-area: 1 / 3 / 2 / 4; inset: -3px 0; width: 100%; height: calc(100% + 6px); pointer-events: none; }
   .metric > .icon { color: var(--c, var(--secondary-text-color)); }
   .metric .lbl { min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .metric .v { text-align: right; font-weight: 500; white-space: nowrap; }
   @container (max-width: 229px) {
     .metric { grid-template-columns: 18px minmax(24px, 1fr) minmax(56px, auto); gap: 6px; }
     .metric .lbl { display: none; }
+    .metric .spark { grid-area: 1 / 2 / 2 / 3; }
   }
   .foot { display: flex; justify-content: space-between; align-items: center; gap: 8px; font-size: 12px; color: var(--secondary-text-color); margin-top: 2px; flex-wrap: wrap; }
   .foot span { display: inline-flex; align-items: center; gap: 4px; }
@@ -2777,7 +3163,7 @@ class SeedboxMiniCard extends SeedboxCard {
       if (this._s(e.alt)?.state === "on")
         foot.push(`<span class="clickable on" role="button" tabindex="0" data-key="alt" data-entity="${esc(e.alt)}">${svgIcon(ICONS.turtle)}${esc(this._t("alt_speed"))}</span>`);
     }
-    return `<style>${BASE_STYLE}${DIALOG_STYLE}${MINI_STYLE}${MOTION_STYLE}</style>
+    return `<style>${BASE_STYLE}${DIALOG_STYLE}${MINI_STYLE}${this._sceneStyle()}${MOTION_STYLE}</style>
       <ha-card>
         ${this._header(client)}
         <div class="content">
@@ -2841,6 +3227,10 @@ class SeedboxEditorBase extends HTMLElement {
       { name: "url", selector: { text: { type: "url" } } },
       { type: "grid", name: "", schema: this.constructor.toggles.map(([name]) => ({ name, selector: { boolean: {} } })) },
       {
+        name: "illustration_theme",
+        selector: { select: { mode: "dropdown", options: ["auto", "day", "night"].map((value) => ({ value, label: tr(`theme_${value}`) })) } },
+      },
+      {
         name: "language",
         selector: { select: { mode: "dropdown", options: [{ value: "", label: tr("lang_auto") }, ...LANGUAGES.map(([value, label]) => ({ value, label }))] } },
       },
@@ -2858,7 +3248,7 @@ class SeedboxEditorBase extends HTMLElement {
       this._form.addEventListener("value-changed", (ev) => {
         ev.stopPropagation();
         const config = { ...ev.detail.value };
-        const defaults = Object.fromEntries(this.constructor.toggles);
+        const defaults = { ...Object.fromEntries(this.constructor.toggles), illustration_theme: "auto" };
         for (const [k, v] of Object.entries(config)) {
           // Keep the YAML minimal: drop empty values and toggles left at their default.
           if (v === "" || v === undefined || v === null || (k in defaults && v === defaults[k])) delete config[k];
@@ -2870,6 +3260,7 @@ class SeedboxEditorBase extends HTMLElement {
     }
     const data = { ...this._config };
     for (const [name, def] of toggles) if (data[name] === undefined) data[name] = def;
+    data.illustration_theme ??= "auto";
     if (!data.client) data.client = clients[0]?.value;
     this._form.hass = this._hass;
     // hass is pushed on every state change while the editor is open: reassign data and schema only when they changed.
@@ -2889,6 +3280,7 @@ class SeedboxEditorBase extends HTMLElement {
 class SeedboxCardEditor extends SeedboxEditorBase {
   static get toggles() {
     return [
+      ["illustration", true],
       ["show_title", true],
       ["show_subtitle", true],
       ["show_speeds", true],
@@ -2905,6 +3297,7 @@ class SeedboxMiniCardEditor extends SeedboxEditorBase {
   // The full card's options too: the detail button shows the full card with this same configuration.
   static get toggles() {
     return [
+      ["illustration", true],
       ["show_title", true],
       ["show_subtitle", true],
       ["show_history", true],

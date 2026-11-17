@@ -59,7 +59,7 @@ const openCard = async (browser, s) => {
   await page.addScriptTag({ content: HA_CARD });
   await page.addScriptTag({ content: cardJs });
   await page.evaluate(
-    ({ type, config, states, entities, devices, torrents, zoom }) => {
+    ({ type, config, states, entities, devices, torrents, zoom, dark }) => {
       const el = document.createElement(type);
       el.setConfig({ type: `custom:${type}`, ...config });
       // Recorder history of the speeds: a plausible 24 h day (a night download, a busy evening), a state every
@@ -86,7 +86,8 @@ const openCard = async (browser, s) => {
       };
       // qBittorrent's get_torrents answers with the mock torrents.
       const callService = async () => ({ response: { torrents: torrents || {} } });
-      el.hass = { states, entities, devices, language: "en", locale: { language: "en" }, callService, callWS };
+      // The dark twin shows the illustration's night picture (Home Assistant's dark mode, no sun.sun in the mocks).
+      el.hass = { states, entities, devices, language: "en", locale: { language: "en" }, themes: { darkMode: dark }, callService, callWS };
       document.getElementById("root").appendChild(el);
       window.__card = el;
       // A mouse click (detail 1) on the detail button: the zoomed-in view, without a keyboard focus ring.
@@ -95,7 +96,7 @@ const openCard = async (browser, s) => {
           .querySelector(".zoom")
           .dispatchEvent(new MouseEvent("click", { bubbles: true, composed: true, detail: 1 }));
     },
-    { type: s.type, config: s.config, states: s.states ?? states, entities: s.entities ?? entities, devices: s.devices ?? devices, torrents: s.torrents ?? null, zoom: !!s.zoom }
+    { type: s.type, config: s.config, states: s.states ?? states, entities: s.entities ?? entities, devices: s.devices ?? devices, torrents: s.torrents ?? null, zoom: !!s.zoom, dark: s.theme === "dark" }
   );
   return page;
 };

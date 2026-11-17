@@ -38,7 +38,8 @@ Entities are **discovered automatically**, you don't have to pick them one by on
 - Automatic discovery of the Transmission, qBittorrent and Deluge clients (several of each supported, and mixed)
 - Download (green) and upload (blue) speeds, with the qBittorrent speed limits or the total transferred
 - Speeds over the last 24 hours, drawn behind the speed tiles and, on the mini card, behind the speed rows, on a real time axis: missing data shows as a gap; their lowest and highest values in the tooltip
-- Header status: idle, downloading, seeding, or both; qBittorrent's connection when it is firewalled or disconnected
+- Animated illustrated header on both cards: the seedbox in the middle of its swarm of peers, packets flowing in (green, downloading) and out (blue, seeding), still when paused, red lights when disconnected; day and night pictures (sun, dark theme, or forced)
+- Header status: idle, downloading, seeding, both, or paused; qBittorrent's connection when it is firewalled or disconnected; the header icon takes the status colour (green when active, grey when idle or paused, amber, red)
 - Torrent counters: active, downloading, seeding, paused, inactive, completed, errors (in red), total, and the global ratio
 - Resume all / pause all (Transmission, Deluge; pausing asks for confirmation) and alternative speed (Transmission's turtle mode, qBittorrent) buttons
 - Torrents list (Transmission, qBittorrent) with progress, status, time left and ratio, a search field (filters by name), torrents in error first; resume / pause of each Transmission torrent (pausing asks for confirmation)
@@ -112,6 +113,8 @@ type: custom:seedbox-card
 client: Seedbox
 title: Seedbox
 url: http://192.168.1.10:9091
+illustration: true
+illustration_theme: auto
 show_title: true
 show_subtitle: true
 show_speeds: true
@@ -128,6 +131,8 @@ type: custom:seedbox-mini-card
 client: Seedbox
 title: Seedbox
 url: http://192.168.1.10:9091
+illustration: true
+illustration_theme: auto
 show_history: true
 show_footer: true
 zoom: true
@@ -145,8 +150,10 @@ language: fr
 |---|---|---|---|
 | `client` | both | First client | Torrent client to display: its device name (as shown in Home Assistant) or its device id (set by the visual editor) |
 | `title` | both | Client name | Card title |
+| `illustration` | both | `true` | Animated illustrated header (the seedbox and its swarm of peers, following the status); `false` keeps the classic header |
+| `illustration_theme` | both | `auto` | Picture of the illustration: `auto` (night when `sun.sun` is below the horizon or with Home Assistant's dark theme, even while the sun is up), `day` or `night` |
 | `show_title` | both | `true` | Show the title in the header (e.g. `false` under a section heading of your own) |
-| `show_subtitle` | both | `true` | Show the subtitle (client, free space) under the title |
+| `show_subtitle` | both | `true` | Show the subtitle (client, free space) under the title and the status |
 | `url` | both | Detected | Address opened in a new tab when clicking the header icon. Defaults to the web UI known by the integration (Deluge), else the client's website |
 | `show_speeds` | both | `true` | Download and upload speed tiles |
 | `show_history` | both | `true` | Speeds of the last 24 hours, from the recorder's history averaged over 5-minute periods, placed on a 24 h time axis with a gap where data is missing. Full card: behind the speed tiles; mini card: behind the speed rows |

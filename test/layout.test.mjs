@@ -52,7 +52,7 @@ const measure = async (cards, reg) => {
         if (zoom) el.shadowRoot.querySelector(".zoom").dispatchEvent(new MouseEvent("click", { bubbles: true, composed: true, detail: 1 }));
         const r = el.shadowRoot;
         const card = r.querySelector("ha-card").getBoundingClientRect();
-        const outside = [...r.querySelectorAll(".header > *, .speed, .count-tile, .act, .metric > *, .foot > span, .item .ctrl, .search")]
+        const outside = [...r.querySelectorAll(".header > *, .htext > *, .banner > .zoom, .speed, .count-tile, .act, .metric > *, .foot > span, .item .ctrl, .search")]
           .filter((n) => {
             const b = n.getBoundingClientRect();
             return b.width > 0 && (b.right > card.right + 0.5 || b.left < card.left - 0.5);
