@@ -181,6 +181,42 @@ test("header chip: client status, qBittorrent connection first, unavailable in g
   deq(chip(with_(qbittorrent, "sensor.qbittorrent_connexion", "firewalled")).slice(0, 2), ["warn", "conn_firewalled"]);
   deq(chip(with_(qbittorrent, "sensor.qbittorrent_connexion", "disconnected")).slice(0, 2), ["crit", "conn_disconnected"]);
   deq(chip(with_({ states, entities, devices }, "sensor.seedbox_statut", "unavailable")).slice(0, 2), ["idle", "state_unavailable"]);
+  deq(chip(with_({ states, entities, devices }, "sensor.seedbox_statut", "idle")).slice(0, 2), ["idle", "status_idle"], "idle in grey");
+  deq(chip(with_({ states, entities, devices }, "switch.seedbox_marche", "off")).slice(0, 2), ["idle", "t_paused"], "everything paused");
+});
+
+test("illustrated header: the swarm follows the status, night from the sun or the theme, classic header on request", () => {
+  const with_ = (reg, changes) => hassOf({ ...reg, states: { ...reg.states, ...Object.fromEntries(Object.entries(changes).map(([id, state]) => [id, { ...(reg.states[id] || { entity_id: id }), state }])) } });
+  const reg = { states, entities, devices };
+  const scene = (hass, config) => card(SeedboxCard, hass, config)._render().match(/class="sb-scene ([a-z]+)"/)?.[1];
+  assert.equal(scene(tr), "both");
+  assert.equal(scene(with_(reg, { "sensor.seedbox_statut": "downloading" })), "down");
+  assert.equal(scene(with_(reg, { "sensor.seedbox_statut": "seeding" })), "up");
+  assert.equal(scene(with_(reg, { "switch.seedbox_marche": "off" })), "paused");
+  assert.equal(scene(with_(qbittorrent, { "sensor.qbittorrent_connexion": "disconnected" })), "error");
+  // Packets only while something moves: green into the server, blue out of it.
+  const down = card(SeedboxCard, with_(reg, { "sensor.seedbox_statut": "downloading" }))._render();
+  assert.ok(/class="sb-pkt dn/.test(down) && !/class="sb-pkt up/.test(down));
+  assert.doesNotMatch(card(SeedboxCard, with_(reg, { "switch.seedbox_marche": "off" }))._render(), /class="sb-pkt /);
+  // Header icon in the status colour: green while active, grey when paused.
+  assert.match(card(SeedboxCard, tr)._render(), /class="logo ok"/);
+  assert.match(card(SeedboxCard, with_(reg, { "switch.seedbox_marche": "off" }))._render(), /class="logo idle"/);
+  // Night: sun below the horizon, else the dark theme; illustration_theme forces it.
+  const night = (hass, config) => /class="banner night"/.test(card(SeedboxCard, hass, config)._render());
+  assert.equal(night(tr), false);
+  assert.equal(night(with_(reg, { "sun.sun": "below_horizon" })), true);
+  assert.equal(night(hassOf(reg, { themes: { darkMode: true } })), true);
+  assert.equal(night(with_(reg, { "sun.sun": "below_horizon" }), { illustration_theme: "day" }), false);
+  assert.equal(night(tr, { illustration_theme: "night" }), true);
+  // Unique ids per card.
+  const a = card(SeedboxCard, tr)._render().match(/id="(sb-glow-\d+)"/)[1];
+  const b = card(SeedboxMiniCard, tr)._render().match(/id="(sb-glow-\d+)"/)[1];
+  assert.notEqual(a, b);
+  // illustration: false keeps the classic header (and none of the picture's styles).
+  const classic = card(SeedboxMiniCard, tr, { illustration: false })._render();
+  assert.match(classic, /class="header"/);
+  assert.doesNotMatch(classic, /class="banner|sb-scene|\.sb-ground/);
+  assert.match(card(SeedboxMiniCard, tr)._render(), /class="banner[^"]*">[\s\S]*class="zoom"/);
 });
 
 test("full card: speeds, counters, actions and the Transmission torrents from torrent_info", () => {
@@ -365,6 +401,8 @@ test("editor: options left at their default stay out of the YAML", () => {
   ed._render();
   ed._form.listeners["value-changed"]({ stopPropagation() {}, detail: { value: { client: "tr", show_speeds: true, expand_torrents: true, title: "" } } });
   deq(ed._config, { client: "tr", expand_torrents: true });
+  ed._form.listeners["value-changed"]({ stopPropagation() {}, detail: { value: { client: "tr", illustration: true, illustration_theme: "auto" } } });
+  deq(ed._config, { client: "tr" }, "illustration defaults stay out of the YAML");
   deq(ed._form.data.show_speeds, true);
 });
 
@@ -373,7 +411,8 @@ test("mini editor: offers the full card's options used by its detail view", () =
   ed._hass = tr;
   ed._config = {};
   const names = ed._schema([]).flatMap((s) => (s.schema ? s.schema.map((x) => x.name) : [s.name]));
-  for (const name of ["show_speeds", "show_counts", "show_controls", "show_torrents", "expand_torrents", "zoom", "show_footer"]) assert.ok(names.includes(name), name);
+  for (const name of ["show_speeds", "show_counts", "show_controls", "show_torrents", "expand_torrents", "zoom", "show_footer", "illustration", "illustration_theme"])
+    assert.ok(names.includes(name), name);
   const full = new SeedboxCardEditor();
   for (const [name] of full.constructor.toggles) assert.ok(names.includes(name), `full option ${name}`);
 });
