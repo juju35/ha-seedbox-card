@@ -86,7 +86,7 @@ const openCard = async (browser, s) => {
       };
       // qBittorrent's get_torrents answers with the mock torrents.
       const callService = async () => ({ response: { torrents: torrents || {} } });
-      // The dark twin shows the illustration's night picture (Home Assistant's dark mode, no sun.sun in the mocks).
+      // The dark twin shows the illustration's night picture (Home Assistant's dark mode).
       el.hass = { states, entities, devices, language: "en", locale: { language: "en" }, themes: { darkMode: dark }, callService, callWS };
       document.getElementById("root").appendChild(el);
       window.__card = el;

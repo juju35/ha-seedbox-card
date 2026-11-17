@@ -2044,13 +2044,13 @@ const sceneState = (cls, key) => {
   return "paused";
 };
 
-// Night picture: forced by illustration_theme, else the sun below the horizon or Home Assistant's dark mode (a dark
-// theme takes the night picture even while the sun is up; an unknown sun leaves the dark mode alone to decide).
+// Night picture: forced by illustration_theme, else Home Assistant's dark mode alone (a light theme keeps the day
+// picture after sunset).
 const isNight = (hass, config) => {
   const theme = config.illustration_theme;
   if (theme === "night") return true;
   if (theme === "day") return false;
-  return hass?.states?.["sun.sun"]?.state === "below_horizon" || !!hass?.themes?.darkMode;
+  return !!hass?.themes?.darkMode;
 };
 
 // The picture. `uid` keeps each card's ids apart on a page with several cards; `warn` turns one light amber.
@@ -2443,8 +2443,8 @@ class SeedboxBase extends HTMLElement {
   // What the render depends on: registries, language, the client's states, the fetched history and torrents.
   _signature() {
     const h = this._hass;
-    // The sun and the theme: the illustration's night picture.
-    const sig = [h.entities, h.devices, h.language, h.locale?.language, h.states?.["sun.sun"]?.state, h.themes?.darkMode];
+    // The theme: the illustration's night picture.
+    const sig = [h.entities, h.devices, h.language, h.locale?.language, h.themes?.darkMode];
     const { client } = findClient(h, this._config);
     if (client) for (const id of Object.values(client.entities)) sig.push(h.states[id]);
     return sig;
