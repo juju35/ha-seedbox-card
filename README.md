@@ -151,7 +151,7 @@ language: fr
 | `client` | both | First client | Torrent client to display: its device name (as shown in Home Assistant) or its device id (set by the visual editor) |
 | `title` | both | Client name | Card title |
 | `illustration` | both | `true` | Animated illustrated header (the seedbox and its swarm of peers, following the status); `false` keeps the classic header |
-| `illustration_theme` | both | `auto` | Picture of the illustration: `auto` (night when `sun.sun` is below the horizon, else with Home Assistant's dark theme), `day` or `night` |
+| `illustration_theme` | both | `auto` | Picture of the illustration: `auto` (night when `sun.sun` is below the horizon or with Home Assistant's dark theme, even while the sun is up), `day` or `night` |
 | `show_title` | both | `true` | Show the title in the header (e.g. `false` under a section heading of your own) |
 | `show_subtitle` | both | `true` | Show the subtitle (client, free space) under the title and the status |
 | `url` | both | Detected | Address opened in a new tab when clicking the header icon. Defaults to the web UI known by the integration (Deluge), else the client's website |

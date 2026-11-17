@@ -201,12 +201,16 @@ test("illustrated header: the swarm follows the status, night from the sun or th
   // Header icon in the status colour: green while active, grey when paused.
   assert.match(card(SeedboxCard, tr)._render(), /class="logo ok"/);
   assert.match(card(SeedboxCard, with_(reg, { "switch.seedbox_marche": "off" }))._render(), /class="logo idle"/);
-  // Night: sun below the horizon, else the dark theme; illustration_theme forces it.
+  // Night: sun below the horizon or the dark theme (even while the sun is up); illustration_theme forces it.
   const night = (hass, config) => /class="banner night"/.test(card(SeedboxCard, hass, config)._render());
+  const themed = (hass, darkMode) => ({ ...hass, themes: { darkMode } });
   assert.equal(night(tr), false);
   assert.equal(night(with_(reg, { "sun.sun": "below_horizon" })), true);
   assert.equal(night(hassOf(reg, { themes: { darkMode: true } })), true);
-  assert.equal(night(with_(reg, { "sun.sun": "below_horizon" }), { illustration_theme: "day" }), false);
+  assert.equal(night(themed(with_(reg, { "sun.sun": "above_horizon" }), true)), true);
+  assert.equal(night(themed(with_(reg, { "sun.sun": "above_horizon" }), false)), false);
+  assert.equal(night(themed(with_(reg, { "sun.sun": "unavailable" }), true)), true);
+  assert.equal(night(themed(with_(reg, { "sun.sun": "below_horizon" }), true), { illustration_theme: "day" }), false);
   assert.equal(night(tr, { illustration_theme: "night" }), true);
   // Unique ids per card.
   const a = card(SeedboxCard, tr)._render().match(/id="(sb-glow-\d+)"/)[1];
