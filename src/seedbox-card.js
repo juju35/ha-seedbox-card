@@ -2694,8 +2694,9 @@ const FULL_STYLE = `
   .speed { position: relative; overflow: hidden; border-radius: 12px; padding: 10px 12px; min-width: 0;
            background: var(--secondary-background-color, rgba(127,127,127,.08)); }
   .speed > :not(.spark) { position: relative; }
-  /* The 24 h curve in the lower half of the tile, under the rate. */
-  .speed .spark { position: absolute; left: 0; bottom: 0; width: 100%; height: 55%; pointer-events: none; }
+  /* The 24 h curve in its own 24 px band under the rate and its total, never behind the text. */
+  .speed:has(> .spark) { padding-bottom: 34px; }
+  .speed .spark { position: absolute; inset: auto 0 0; width: 100%; height: 24px; pointer-events: none; }
   .speed .k { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--secondary-text-color); }
   .speed .k .icon { color: var(--c); width: 16px; height: 16px; }
   .speed .v { font-size: 22px; font-weight: 500; line-height: 1.3; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -2703,6 +2704,7 @@ const FULL_STYLE = `
   .speed .d { font-size: 11px; color: var(--secondary-text-color); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-height: 14px; }
   @container (max-width: 279px) {
     .speed { padding: 8px; }
+    .speed:has(> .spark) { padding-bottom: 32px; }
     .speed .v { font-size: 17px; }
     .speed .v small { font-size: 11px; }
   }
@@ -2967,13 +2969,15 @@ const MINI_STYLE = `
   .metric { display: grid; grid-template-columns: 18px minmax(0, 86px) minmax(24px, 1fr) minmax(56px, auto); align-items: center; gap: 8px; font-size: 13px;
             position: relative; }
   .metric > :not(.spark) { position: relative; }
-  .metric .spark { position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; }
+  /* 24 h curve behind the bar only: it never crosses the label or the value. */
+  .metric .spark { position: absolute; grid-area: 1 / 3 / 2 / 4; inset: -3px 0; width: 100%; height: calc(100% + 6px); pointer-events: none; }
   .metric > .icon { color: var(--c, var(--secondary-text-color)); }
   .metric .lbl { min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .metric .v { text-align: right; font-weight: 500; white-space: nowrap; }
   @container (max-width: 229px) {
     .metric { grid-template-columns: 18px minmax(24px, 1fr) minmax(56px, auto); gap: 6px; }
     .metric .lbl { display: none; }
+    .metric .spark { grid-area: 1 / 2 / 2 / 3; }
   }
   .foot { display: flex; justify-content: space-between; align-items: center; gap: 8px; font-size: 12px; color: var(--secondary-text-color); margin-top: 2px; flex-wrap: wrap; }
   .foot span { display: inline-flex; align-items: center; gap: 4px; }

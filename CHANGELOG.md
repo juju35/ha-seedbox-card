@@ -8,6 +8,9 @@
 - The header icon takes the status colour: green while downloading or seeding, grey when idle or paused (the client's on/off switch off now reads "Paused"), amber when firewalled, red when disconnected.
 - On the illustrated header the status is a pill right after the title, in the header icon's colour (*Active* while downloading and seeding, the whole status in its tooltip; under the subtitle on a narrow card, only its dot below 200 px); the picture steps aside under 300 px. The mini card's detail button is the small frosted round button in the banner's top right corner.
 
+### Fixes
+- The 24 h sparklines no longer run under the text: the download / upload tiles draw theirs in a 24 px band of their own under the rate and its total ("3.21 TiB in total"), and the mini card's rate rows behind the bar only, clear of the label and the value.
+
 ## 1.0.2 - 2026-11-14
 
 ### Fixes
