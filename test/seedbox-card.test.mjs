@@ -217,6 +217,11 @@ test("illustrated header: the swarm follows the status, night from the sun or th
   assert.match(classic, /class="header"/);
   assert.doesNotMatch(classic, /class="banner|sb-scene|\.sb-ground/);
   assert.match(card(SeedboxMiniCard, tr)._render(), /class="banner[^"]*">[\s\S]*class="zoom"/);
+  // The status pill right after the title: "Active" for downloading and seeding, the whole status as its label.
+  assert.match(
+    card(SeedboxCard, tr)._render(),
+    /<div class="trow"><div class="name">[^<]*<\/div><span class="chip status clickable ok"[^>]*title="Downloading and seeding"[^>]*><span class="dot"><\/span><span class="chip-label">Active</,
+  );
 });
 
 test("full card: speeds, counters, actions and the Transmission torrents from torrent_info", () => {

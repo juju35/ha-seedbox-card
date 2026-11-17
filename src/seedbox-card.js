@@ -119,6 +119,7 @@ const STRINGS = {
     status_downloading: "Downloading",
     status_seeding: "Seeding",
     status_up_down: "Downloading and seeding",
+    status_up_down_short: "Active",
     conn_firewalled: "Firewalled",
     conn_disconnected: "Disconnected",
     state_unavailable: "Unavailable",
@@ -190,6 +191,7 @@ const STRINGS = {
     status_downloading: "Téléchargement",
     status_seeding: "Partage",
     status_up_down: "Téléchargement et partage",
+    status_up_down_short: "Actif",
     conn_firewalled: "Derrière un pare-feu",
     conn_disconnected: "Déconnecté",
     state_unavailable: "Indisponible",
@@ -260,6 +262,7 @@ const STRINGS = {
     status_downloading: "Lädt herunter",
     status_seeding: "Seedet",
     status_up_down: "Lädt herunter und seedet",
+    status_up_down_short: "Aktiv",
     conn_firewalled: "Hinter Firewall",
     conn_disconnected: "Getrennt",
     state_unavailable: "Nicht verfügbar",
@@ -330,6 +333,7 @@ const STRINGS = {
     status_downloading: "Descargando",
     status_seeding: "Compartiendo",
     status_up_down: "Descargando y compartiendo",
+    status_up_down_short: "Activo",
     conn_firewalled: "Tras un cortafuegos",
     conn_disconnected: "Desconectado",
     state_unavailable: "No disponible",
@@ -400,6 +404,7 @@ const STRINGS = {
     status_downloading: "Преузимање",
     status_seeding: "Дељење",
     status_up_down: "Преузимање и дељење",
+    status_up_down_short: "Активно",
     conn_firewalled: "Иза заштитног зида",
     conn_disconnected: "Веза прекинута",
     state_unavailable: "Недоступно",
@@ -470,6 +475,7 @@ const STRINGS = {
     status_downloading: "Preuzimanje",
     status_seeding: "Deljenje",
     status_up_down: "Preuzimanje i deljenje",
+    status_up_down_short: "Aktivno",
     conn_firewalled: "Iza zaštitnog zida",
     conn_disconnected: "Veza prekinuta",
     state_unavailable: "Nedostupno",
@@ -540,6 +546,7 @@ const STRINGS = {
     status_downloading: "Download in corso",
     status_seeding: "Condivisione",
     status_up_down: "Download e condivisione",
+    status_up_down_short: "Attivo",
     conn_firewalled: "Dietro firewall",
     conn_disconnected: "Disconnesso",
     state_unavailable: "Non disponibile",
@@ -610,6 +617,7 @@ const STRINGS = {
     status_downloading: "Downloaden",
     status_seeding: "Seeden",
     status_up_down: "Downloaden en seeden",
+    status_up_down_short: "Actief",
     conn_firewalled: "Achter firewall",
     conn_disconnected: "Verbroken",
     state_unavailable: "Niet beschikbaar",
@@ -680,6 +688,7 @@ const STRINGS = {
     status_downloading: "A transferir",
     status_seeding: "A partilhar",
     status_up_down: "A transferir e a partilhar",
+    status_up_down_short: "Ativo",
     conn_firewalled: "Atrás de firewall",
     conn_disconnected: "Desligado",
     state_unavailable: "Indisponível",
@@ -750,6 +759,7 @@ const STRINGS = {
     status_downloading: "Pobieranie",
     status_seeding: "Udostępnianie",
     status_up_down: "Pobieranie i udostępnianie",
+    status_up_down_short: "Aktywny",
     conn_firewalled: "Za zaporą",
     conn_disconnected: "Rozłączony",
     state_unavailable: "Niedostępny",
@@ -820,6 +830,7 @@ const STRINGS = {
     status_downloading: "Descărcare",
     status_seeding: "Partajare",
     status_up_down: "Descărcare și partajare",
+    status_up_down_short: "Activ",
     conn_firewalled: "În spatele unui firewall",
     conn_disconnected: "Deconectat",
     state_unavailable: "Indisponibil",
@@ -890,6 +901,7 @@ const STRINGS = {
     status_downloading: "Downloader",
     status_seeding: "Seeder",
     status_up_down: "Downloader og seeder",
+    status_up_down_short: "Aktiv",
     conn_firewalled: "Bag firewall",
     conn_disconnected: "Afbrudt",
     state_unavailable: "Utilgængelig",
@@ -960,6 +972,7 @@ const STRINGS = {
     status_downloading: "Laddar ner",
     status_seeding: "Seedar",
     status_up_down: "Laddar ner och seedar",
+    status_up_down_short: "Aktiv",
     conn_firewalled: "Bakom brandvägg",
     conn_disconnected: "Frånkopplad",
     state_unavailable: "Inte tillgänglig",
@@ -1030,6 +1043,7 @@ const STRINGS = {
     status_downloading: "Изтегляне",
     status_seeding: "Споделяне",
     status_up_down: "Изтегляне и споделяне",
+    status_up_down_short: "Активно",
     conn_firewalled: "Зад защитна стена",
     conn_disconnected: "Прекъсната връзка",
     state_unavailable: "Недостъпно",
@@ -1100,6 +1114,7 @@ const STRINGS = {
     status_downloading: "Загрузка",
     status_seeding: "Раздача",
     status_up_down: "Загрузка и раздача",
+    status_up_down_short: "Активно",
     conn_firewalled: "За брандмауэром",
     conn_disconnected: "Отключено",
     state_unavailable: "Недоступно",
@@ -1170,6 +1185,7 @@ const STRINGS = {
     status_downloading: "Завантаження",
     status_seeding: "Роздача",
     status_up_down: "Завантаження і роздача",
+    status_up_down_short: "Активно",
     conn_firewalled: "За брандмауером",
     conn_disconnected: "Від'єднано",
     state_unavailable: "Недоступно",
@@ -1240,6 +1256,7 @@ const STRINGS = {
     status_downloading: "Letöltés",
     status_seeding: "Megosztás",
     status_up_down: "Letöltés és megosztás",
+    status_up_down_short: "Aktív",
     conn_firewalled: "Tűzfal mögött",
     conn_disconnected: "Leválasztva",
     state_unavailable: "Nem elérhető",
@@ -1310,6 +1327,7 @@ const STRINGS = {
     status_downloading: "Sťahovanie",
     status_seeding: "Zdieľanie",
     status_up_down: "Sťahovanie a zdieľanie",
+    status_up_down_short: "Aktívne",
     conn_firewalled: "Za firewallom",
     conn_disconnected: "Odpojený",
     state_unavailable: "Nedostupné",
@@ -1380,6 +1398,7 @@ const STRINGS = {
     status_downloading: "Stahování",
     status_seeding: "Sdílení",
     status_up_down: "Stahování a sdílení",
+    status_up_down_short: "Aktivní",
     conn_firewalled: "Za firewallem",
     conn_disconnected: "Odpojeno",
     state_unavailable: "Nedostupné",
@@ -1450,6 +1469,7 @@ const STRINGS = {
     status_downloading: "Prenašanje",
     status_seeding: "Deljenje",
     status_up_down: "Prenašanje in deljenje",
+    status_up_down_short: "Aktivno",
     conn_firewalled: "Za požarnim zidom",
     conn_disconnected: "Prekinjeno",
     state_unavailable: "Ni na voljo",
@@ -1520,6 +1540,7 @@ const STRINGS = {
     status_downloading: "Lejupielāde",
     status_seeding: "Koplietošana",
     status_up_down: "Lejupielāde un koplietošana",
+    status_up_down_short: "Aktīvs",
     conn_firewalled: "Aiz ugunsmūra",
     conn_disconnected: "Atvienots",
     state_unavailable: "Nav pieejams",
@@ -1590,6 +1611,7 @@ const STRINGS = {
     status_downloading: "Λήψη",
     status_seeding: "Διαμοιρασμός",
     status_up_down: "Λήψη και διαμοιρασμός",
+    status_up_down_short: "Ενεργό",
     conn_firewalled: "Πίσω από τείχος προστασίας",
     conn_disconnected: "Αποσυνδεδεμένο",
     state_unavailable: "Μη διαθέσιμο",
@@ -2103,20 +2125,38 @@ const SCENE_STYLE = `
   /* The text on the left, over the plain background; it stops where the picture starts. */
   .htext { position: absolute; z-index: 1; left: 0; top: 0; bottom: var(--sb-g); right: calc(var(--sb-scene-w) + 4px);
            display: flex; align-items: center; gap: 10px; padding: 8px 4px 8px 14px; min-width: 0; box-sizing: border-box; }
-  .htext .titles { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 1px; }
-  .htext .name { font-size: 16px; font-weight: 500; }
-  .htext .line { font-size: 13px; line-height: 17px; color: var(--sb-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .htext .state .dot { margin: 0 5px 1px 0; vertical-align: middle; }
-  .htext .state.clickable:hover { text-decoration: underline; }
+  .htext .titles { flex: 1 1 auto; min-width: 0; display: flex; flex-wrap: wrap; align-items: center; column-gap: 8px; row-gap: 1px; }
+  .htext .titles > * { flex: 1 0 100%; min-width: 0; }
+  /* The title, then its status pill 8 px after it, centred on it: the title ellipsises first but keeps about 4
+     characters (48 px); the pill keeps its whole label when it can. */
+  .htext .trow { display: flex; align-items: center; gap: 8px; min-width: 0; }
+  .htext .name { flex: 0 1000 auto; min-width: 48px; font-size: 16px; font-weight: 500; }
+  .htext .chip { flex: 0 1 auto; min-width: 0; overflow: hidden; line-height: 16px; box-sizing: border-box; white-space: nowrap;
+                 background: color-mix(in srgb, var(--c) 18%, rgba(255,255,255,.78)); color: color-mix(in srgb, var(--c) 45%, #0d2a45); }
+  .banner.night .htext .chip { background: color-mix(in srgb, var(--c) 30%, rgba(8,18,38,.55)); color: color-mix(in srgb, var(--c) 35%, #ffffff); }
+  .htext .chip .dot { width: 7px; height: 7px; }
   .htext .sub { font-size: 12px; line-height: 15px; color: var(--sb-muted); opacity: .85; }
+  /* A narrow card: the title takes its whole line, the pill goes under the subtitle; under 200 px only its dot
+     shows, on the title line (its text stays its tooltip and accessible name). */
+  @container (min-width: 201px) and (max-width: 260px) {
+    .htext .trow { display: contents; }
+    .htext .name { flex: 1 0 100%; }
+    .htext .sub { order: 1; }
+    .htext .chip { order: 2; margin-top: 2px; }
+  }
+  @container (max-width: 200px) { .htext .chip { flex: none; padding: 5px; } .htext .chip .chip-label { display: none; } }
   .banner .logo { background: rgba(255,255,255,.62); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--c) 22%, transparent); }
   .banner.night .logo { background: rgba(255,255,255,.12); box-shadow: inset 0 0 0 1px rgba(255,255,255,.14); }
   .banner.night .logo.idle { --c: #9aa3b0; }
-  .banner .zoom { position: absolute; z-index: 2; top: 6px; right: 6px; margin: 0; color: #0d2a45; background: rgba(255,255,255,.6); }
-  .banner.night .zoom { color: #fff; background: rgba(10,20,40,.5); }
+  /* The mini card's detail button: round, frosted, in the top right corner of the banner. */
+  .banner .zoom { position: absolute; z-index: 2; top: 5px; right: 5px; margin: 0; color: #33506b; background: rgba(255,255,255,.55);
+                  box-shadow: inset 0 0 0 1px rgba(255,255,255,.7); backdrop-filter: blur(4px); }
+  .banner .zoom:hover { background: rgba(255,255,255,.75); color: #33506b; }
+  .banner.night .zoom { color: #fff; background: rgba(255,255,255,.12); box-shadow: inset 0 0 0 1px rgba(255,255,255,.2); }
+  .banner.night .zoom:hover { background: rgba(255,255,255,.22); color: #fff; }
   .banner + .content { padding-top: 12px; }
-  /* Narrow card: no room for the picture beside the text, the background and the strip stay. */
-  @container (max-width: 239px) {
+  /* Narrow card: no room for the picture beside the title and its pill, the background and the strip stay. */
+  @container (max-width: 300px) {
     .sb-scene { display: none; }
     .htext { right: 0; }
     :host([mini]) .htext { right: 30px; }
@@ -2521,14 +2561,15 @@ class SeedboxBase extends HTMLElement {
     const logo = `<a class="logo ${cls}" href="${esc(this._logoUrl(client))}" target="_blank" rel="noopener noreferrer" title="${esc(srcName)}" aria-label="${esc(srcName)}">${svgIcon(ICONS.seedbox)}</a>`;
     const name = `<div class="name">${esc(c.title || client.name)}</div>`;
     if (c.illustration !== false) {
-      // Illustrated banner: the status on the second line, then the subtitle; the swarm on the right.
-      const state = id
-        ? `<span class="state clickable ${cls}" role="button" tabindex="0" data-entity="${esc(id)}"><span class="dot"></span>${chip}</span>`
-        : `<span class="state ${cls}"><span class="dot"></span>${chip}</span>`;
+      // Illustrated banner: the title and its status pill on the first line, the subtitle under them; the swarm on
+      // the right.
+      // "Downloading and seeding" is too long for the pill: "Active" there, the whole status as its tooltip and label.
+      const short = key === "status_up_down" ? esc(this._t("status_up_down_short")) : chip;
+      const pill = `<span class="chip status${id ? " clickable" : ""} ${cls}"${id ? ` role="button" tabindex="0" data-entity="${esc(id)}"` : ""} title="${chip}" aria-label="${chip}"><span class="dot"></span><span class="chip-label">${short}</span></span>`;
       const night = isNight(this._hass, c) ? " night" : "";
       return `
       <div class="banner${night}">${sbSceneSvg(sceneState(cls, key), this._uid, cls === "warn")}
-        <div class="htext">${logo}<div class="titles">${name}<div class="line">${state}</div>${sub.length ? `<div class="sub">${esc(sub.join(" · "))}</div>` : ""}</div></div>
+        <div class="htext">${logo}<div class="titles"><div class="trow">${name}${pill}</div>${sub.length ? `<div class="sub">${esc(sub.join(" · "))}</div>` : ""}</div></div>
         ${this._zoomButton()}
       </div>`;
     }

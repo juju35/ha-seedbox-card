@@ -6,6 +6,7 @@
 - Animated illustrated header on the Seedbox Card and the Seedbox Mini Card (90 px): the seedbox in the middle of its swarm of peers over a soil strip, packets flowing in (green) while downloading and out (blue) while seeding, still with a pause sign when paused or idle, red lights when disconnected. The status sits under the title.
 - Night picture when the sun is below the horizon (or with Home Assistant's dark theme), forced with `illustration_theme: day | night`; `illustration: false` keeps the classic header. Both options are in the visual editors. Animations stop with "reduce motion".
 - The header icon takes the status colour: green while downloading or seeding, grey when idle or paused (the client's on/off switch off now reads "Paused"), amber when firewalled, red when disconnected.
+- On the illustrated header the status is a pill right after the title, in the header icon's colour (*Active* while downloading and seeding, the whole status in its tooltip; under the subtitle on a narrow card, only its dot below 200 px); the picture steps aside under 300 px. The mini card's detail button is the small frosted round button in the banner's top right corner.
 
 ## 1.0.2 - 2026-11-14
 
