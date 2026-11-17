@@ -1884,6 +1884,13 @@ const morph = (root, html) => {
   patchChildren(root, tpl.content);
 };
 
+// The whole width of an element's text in its own font, an ellipsised one included.
+const textWidth = (el) => {
+  const range = document.createRange();
+  range.selectNodeContents(el);
+  return range.getBoundingClientRect().width;
+};
+
 const svgIcon = (path, cls = "") => `<svg class="icon ${cls}" viewBox="0 0 24 24"><path d="${path}"/></svg>`;
 
 // ---------------------------------------------------------------------------
@@ -2124,25 +2131,25 @@ const SCENE_STYLE = `
   /* The text on the left, over the plain background; it stops where the picture starts. */
   .htext { position: absolute; z-index: 1; left: 0; top: 0; bottom: var(--sb-g); right: calc(var(--sb-scene-w) + 4px);
            display: flex; align-items: center; gap: 10px; padding: 8px 4px 8px 14px; min-width: 0; box-sizing: border-box; }
-  .htext .titles { flex: 1 1 auto; min-width: 0; display: flex; flex-wrap: wrap; align-items: center; column-gap: 8px; row-gap: 1px; }
+  .htext .titles { flex: 1 1 auto; min-width: 0; display: flex; flex-flow: row wrap; align-items: center; column-gap: 8px; row-gap: 1px; }
   .htext .titles > * { flex: 1 0 100%; min-width: 0; }
-  /* The title, then its status pill 8 px after it, centred on it: the title ellipsises first but keeps about 4
-     characters (48 px); the pill keeps its whole label when it can. */
+  /* The title, then its status pill 8 px after it, centred on it, while the whole title and the pill's whole label fit
+     on that row; otherwise (measured by the card, see _fitPill) the title takes its whole line and the pill goes under
+     the subtitle (.below), its dot alone (.pill-dot) when even then the text would run into the ground strip. */
   .htext .trow { display: flex; align-items: center; gap: 8px; min-width: 0; }
-  .htext .name { flex: 0 1000 auto; min-width: 48px; font-size: 16px; font-weight: 500; }
-  .htext .chip { flex: 0 1 auto; min-width: 0; overflow: hidden; line-height: 16px; box-sizing: border-box; white-space: nowrap;
+  .htext .name { flex: 0 1 auto; min-width: 0; font-size: 16px; font-weight: 500; }
+  .htext .chip { flex: none; min-width: 0; max-width: none; overflow: hidden; line-height: 16px; box-sizing: border-box; white-space: nowrap;
                  background: color-mix(in srgb, var(--c) 18%, rgba(255,255,255,.78)); color: color-mix(in srgb, var(--c) 45%, #0d2a45); }
   .banner.night .htext .chip { background: color-mix(in srgb, var(--c) 30%, rgba(8,18,38,.55)); color: color-mix(in srgb, var(--c) 35%, #ffffff); }
   .htext .chip .dot { width: 7px; height: 7px; }
   .htext .sub { font-size: 12px; line-height: 15px; color: var(--sb-muted); opacity: .85; }
-  /* A narrow card: the title takes its whole line, the pill goes under the subtitle; under 200 px only its dot
-     shows, on the title line (its text stays its tooltip and accessible name). */
-  @container (min-width: 201px) and (max-width: 260px) {
-    .htext .trow { display: contents; }
-    .htext .name { flex: 1 0 100%; }
-    .htext .sub { order: 1; }
-    .htext .chip { order: 2; margin-top: 2px; }
-  }
+  .htext .titles.below { display: flex; }
+  .htext .titles.below .trow { display: contents; }
+  .htext .titles.below .name { flex: 1 0 100%; }
+  .htext .titles.below .sub { order: 1; }
+  .htext .titles.below .chip { order: 2; margin-top: 2px; max-width: 100%; }
+  .htext .titles.pill-dot .chip { padding: 5px; }
+  /* Under 200 px only its dot shows (its text stays its tooltip and accessible name). */
   @container (max-width: 200px) { .htext .chip { flex: none; padding: 5px; } .htext .chip .chip-label { display: none; } }
   .banner .logo { background: rgba(255,255,255,.62); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--c) 22%, transparent); }
   .banner.night .logo { background: rgba(255,255,255,.12); box-shadow: inset 0 0 0 1px rgba(255,255,255,.14); }
@@ -2191,18 +2198,32 @@ const BASE_STYLE = `
           color: var(--c, var(--sb-ok)); background: color-mix(in srgb, var(--c, var(--sb-ok)) 16%, transparent); }
   .logo .icon { width: 24px; height: 24px; fill: currentColor; }
   .titles { flex: 1 1 0; min-width: 5ch; }
+  /* The status pill right after the title, centred on it, while the title stays whole and the pill's whole label fits
+     beside it; otherwise (measured by the card, see _fitPill) the pill on its own line under a one-line subtitle, and
+     if even that would not fit in the header, its dot alone (the label stays in title and aria-label). */
+  .titles { display: flex; flex-direction: column; }
+  .trow { display: flex; align-items: center; gap: 8px; min-width: 0; }
+  .trow .name { flex: 0 1 auto; min-width: 0; }
+  .trow .chip { flex: none; max-width: none; }
+  .titles.below { display: grid; grid-template-columns: minmax(0, 1fr); justify-items: start; }
+  .titles.below .trow { display: contents; }
+  .titles.below .name { max-width: 100%; }
+  .titles.below > .sub { justify-self: stretch; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .titles.below .chip { grid-row: 3; max-width: 100%; }
+  .titles.pill-dot .chip { padding: 4px; }
+  .titles.pill-dot .chip .chip-label { display: none; }
   :host([hide-title]) .titles > .name, :host([hide-subtitle]) .titles > .sub { display: none; }
-  .header .chip { flex: 0 1 auto; min-width: 0; overflow: hidden; line-height: 16px; box-sizing: border-box; }
+  .header .chip { flex: none; min-width: 0; overflow: hidden; line-height: 16px; box-sizing: border-box; }
   /* Unavailable / unknown: the dot stays grey, the text takes the primary text colour (contrast). */
   .header .chip.idle { color: var(--primary-text-color); }
   .chip-label { min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  /* With a subtitle, the chip stays on the title's line, not centred on the two lines. */
-  .header:has(.sub) .titles { align-self: flex-start; }
-  .header:has(.sub) .chip { align-self: flex-start; margin-top: 1px; }
   @container (max-width: 239px) {
     .header { gap: 6px; }
     :host(:not([mini])) .header .logo { height: 32px; width: 32px; }
     :host(:not([mini])) .header .logo .icon { width: 18px; height: 18px; }
+  }
+  /* Under 200 px only the chip's dot shows (its text stays its tooltip and accessible name). */
+  @container (max-width: 200px) {
     .header .chip { flex: none; padding: 6px; }
     .header .chip .chip-label { display: none; }
   }
@@ -2369,11 +2390,25 @@ class SeedboxBase extends HTMLElement {
     if (this._confirm) window.addEventListener("keydown", this._onKey);
     // Back on the page after leaving it: rendered again in its default state.
     this._update();
+    // A new width (or the web font loaded): the status pill is fitted again, in the next frame.
+    if (typeof ResizeObserver === "function") {
+      this._resize ??= new ResizeObserver((entries) => {
+        const w = Math.round(entries.at(-1).contentRect.width);
+        if (w === this._fitWidth) return;
+        this._fitWidth = w;
+        cancelAnimationFrame(this._fitFrame);
+        this._fitFrame = requestAnimationFrame(() => this._fitPill());
+      });
+      this._resize.observe(this);
+    }
+    document.fonts?.ready?.then(() => this._fitPill());
   }
 
   disconnectedCallback() {
     this._outside?.off();
     window.removeEventListener("keydown", this._onKey);
+    this._resize?.disconnect();
+    this._fitWidth = null;
     this._pressing = false;
     window.removeEventListener("pointerup", this._onPressEnd, true);
     window.removeEventListener("pointercancel", this._onPressEnd, true);
@@ -2429,6 +2464,32 @@ class SeedboxBase extends HTMLElement {
     if (html !== this._html) {
       this._html = html;
       morph(this.shadowRoot, html);
+    }
+    this._fitPill();
+  }
+
+  // The status pill stays right after the title only while the whole title and the pill's whole label fit on that
+  // row; otherwise it takes a line of its own under the subtitle (.below), and when even then the title, the subtitle
+  // and the pill would not fit above the banner's ground strip, it keeps its dot alone (.pill-dot). Measured in the
+  // real fonts, so that every language and title length gets its own answer.
+  _fitPill() {
+    for (const t of this.shadowRoot?.querySelectorAll?.(".titles") || []) {
+      const row = t.querySelector(":scope > .trow");
+      const chip = row?.querySelector(":scope > .chip");
+      if (!chip?.getBoundingClientRect) continue;
+      t.classList.remove("below", "pill-dot");
+      const name = row.querySelector(":scope > .name");
+      const gap = parseFloat(getComputedStyle(row).columnGap) || 0;
+      const title = name ? textWidth(name) + gap : 0;
+      const pill = chip.getBoundingClientRect().width;
+      if (title + pill <= row.getBoundingClientRect().width) continue;
+      t.classList.add("below");
+      const r = t.getBoundingClientRect();
+      const banner = t.closest(".banner");
+      const box = banner?.getBoundingClientRect();
+      const floor = banner?.querySelector(".sb-ground")?.getBoundingClientRect().top ?? box?.bottom;
+      const tall = box && (r.bottom > floor + 0.5 || r.top < box.top - 0.5);
+      if (tall || pill > r.width + 0.5) t.classList.add("pill-dot");
     }
   }
 
@@ -2568,7 +2629,7 @@ class SeedboxBase extends HTMLElement {
       const night = isNight(this._hass, c) ? " night" : "";
       return `
       <div class="banner${night}">${sbSceneSvg(sceneState(cls, key), this._uid, cls === "warn")}
-        <div class="htext">${logo}<div class="titles"><div class="trow">${name}${pill}</div>${sub.length ? `<div class="sub">${esc(sub.join(" · "))}</div>` : ""}</div></div>
+        <div class="htext">${logo}<div class="titles"><div class="trow">${name}${pill}</div>${sub.length ? `<div class="sub" title="${esc(sub.join(" · "))}">${esc(sub.join(" · "))}</div>` : ""}</div></div>
         ${this._zoomButton()}
       </div>`;
     }
@@ -2576,14 +2637,13 @@ class SeedboxBase extends HTMLElement {
       <div class="header">
         ${logo}
         <div class="titles">
-          ${name}
-          ${sub.length ? `<div class="sub">${esc(sub.join(" · "))}</div>` : ""}
+          <div class="trow">${name}${
+            id
+              ? `<span class="chip clickable ${cls}" role="button" tabindex="0" data-entity="${esc(id)}" title="${chip}" aria-label="${chip}"><span class="dot"></span><span class="chip-label">${chip}</span></span>`
+              : ""
+          }</div>
+          ${sub.length ? `<div class="sub" title="${esc(sub.join(" · "))}">${esc(sub.join(" · "))}</div>` : ""}
         </div>
-        ${
-          id
-            ? `<span class="chip clickable ${cls}" role="button" tabindex="0" data-entity="${esc(id)}" title="${chip}" aria-label="${chip}"><span class="dot"></span><span class="chip-label">${chip}</span></span>`
-            : ""
-        }
         ${this._zoomButton()}
       </div>`;
   }
