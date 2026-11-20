@@ -426,3 +426,27 @@ test("mini editor: offers the full card's options used by its detail view", () =
   const full = new SeedboxCardEditor();
   for (const [name] of full.constructor.toggles) assert.ok(names.includes(name), `full option ${name}`);
 });
+
+test("header icon link: http(s) only, else the client's website", () => {
+  const [c] = resolve(dl).clients;
+  const el = card(SeedboxCard, dl, { url: "javascript:alert(1)" });
+  const site = el._logoUrl(c);
+  assert.match(site, /^https?:\/\//);
+  const odd = hassOf({ ...deluge, devices: { ...deluge.devices, [c.id]: { ...deluge.devices[c.id], configuration_url: "homeassistant://hassio/ingress/x" } } });
+  const el2 = card(SeedboxCard, odd, {});
+  assert.doesNotMatch(el2._logoUrl(resolve(odd).clients[0]), /^homeassistant:/);
+  assert.equal(card(SeedboxCard, dl, { url: " https://box.example/ " })._logoUrl(c), "https://box.example/");
+});
+
+test("mini card: the detail button has an accessible name", () => {
+  const el = card(SeedboxMiniCard, tr, {});
+  assert.match(el._zoomButton(), /class="zoom" title="[^"]+" aria-label="[^"]+"/);
+});
+
+test("a minute timer while on the page keeps the history fresh on an idle client, stopped off the page", () => {
+  const el = card(SeedboxCard, tr, {});
+  el.connectedCallback();
+  assert.ok(el._tick, "a timer is set");
+  el.disconnectedCallback();
+  assert.equal(el._tick, null, "and cleared");
+});

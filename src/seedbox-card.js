@@ -2402,9 +2402,15 @@ class SeedboxBase extends HTMLElement {
       this._resize.observe(this);
     }
     document.fonts?.ready?.then(() => this._fitPill());
+    // A client with nothing changing sends no state: the 24 h history (and an open qBittorrent list) would grow old.
+    // Checked every minute while the card is on the page; fetched again only once stale, drawn only if it changed.
+    clearInterval(this._tick);
+    this._tick = setInterval(() => this._update(), 60000);
   }
 
   disconnectedCallback() {
+    clearInterval(this._tick);
+    this._tick = null;
     this._outside?.off();
     window.removeEventListener("keydown", this._onKey);
     this._resize?.disconnect();
@@ -2587,12 +2593,11 @@ class SeedboxBase extends HTMLElement {
     </div>`;
   }
 
-  // Icon target: url option (http(s) only), else the web UI advertised by the integration (Deluge), else the
-  // client's website.
+  // Icon target: url option, else the web UI advertised by the integration (Deluge), else the client's website;
+  // http(s) only (a device's configuration_url can be a homeassistant:// link, which a new tab cannot open).
   _logoUrl(client) {
-    const url = this._config.url;
-    if (/^https?:\/\//i.test(url || "")) return url;
-    return this._hass.devices?.[client.id]?.configuration_url || SOURCES[client.source].site;
+    const web = (u) => (/^https?:\/\//i.test(String(u || "").trim()) ? String(u).trim() : null);
+    return web(this._config.url) || web(this._hass.devices?.[client.id]?.configuration_url) || SOURCES[client.source].site;
   }
 
   // Header chip: [class, label key, entity]. qBittorrent's connection status comes first when it is not connected.
@@ -3110,7 +3115,8 @@ class SeedboxMiniCard extends SeedboxCard {
   _zoomButton() {
     if (this._config.zoom === false) return "";
     const z = this._zoomed;
-    return `<button type="button" class="zoom" title="${esc(this._t(z ? "zoom_out" : "zoom_in"))}">${svgIcon(z ? ICONS.collapse : ICONS.expand)}</button>`;
+    const label = esc(this._t(z ? "zoom_out" : "zoom_in"));
+    return `<button type="button" class="zoom" title="${label}" aria-label="${label}">${svgIcon(z ? ICONS.collapse : ICONS.expand)}</button>`;
   }
 
   _metric(id, icon, label, pct, display, cls, points) {

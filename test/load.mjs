@@ -35,6 +35,9 @@ export const load = (file, names) => {
     Intl,
     Date,
     setTimeout,
+    // The card's minute timer: never run on its own in the tests.
+    setInterval: () => 1,
+    clearInterval() {},
   };
   vm.createContext(context);
   return vm.runInContext(`${src}\n;({ ${names.join(", ")} })`, context);
