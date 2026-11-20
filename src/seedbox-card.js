@@ -2402,9 +2402,15 @@ class SeedboxBase extends HTMLElement {
       this._resize.observe(this);
     }
     document.fonts?.ready?.then(() => this._fitPill());
+    // A client with nothing changing sends no state: the 24 h history (and an open qBittorrent list) would grow old.
+    // Checked every minute while the card is on the page; fetched again only once stale, drawn only if it changed.
+    clearInterval(this._tick);
+    this._tick = setInterval(() => this._update(), 60000);
   }
 
   disconnectedCallback() {
+    clearInterval(this._tick);
+    this._tick = null;
     this._outside?.off();
     window.removeEventListener("keydown", this._onKey);
     this._resize?.disconnect();

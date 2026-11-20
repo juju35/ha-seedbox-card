@@ -442,3 +442,11 @@ test("mini card: the detail button has an accessible name", () => {
   const el = card(SeedboxMiniCard, tr, {});
   assert.match(el._zoomButton(), /class="zoom" title="[^"]+" aria-label="[^"]+"/);
 });
+
+test("a minute timer while on the page keeps the history fresh on an idle client, stopped off the page", () => {
+  const el = card(SeedboxCard, tr, {});
+  el.connectedCallback();
+  assert.ok(el._tick, "a timer is set");
+  el.disconnectedCallback();
+  assert.equal(el._tick, null, "and cleared");
+});
