@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.2 - 2026-11-20
+
+### Fixes
+- Header icon: only an http(s) address opens in a new tab — a device's `homeassistant://` configuration URL (or a non-web `url`) falls back to the client's website.
+- Mini card: the detail button has an accessible name (`aria-label`).
+
 ## 1.1.1 - 2026-11-18
 
 ### Fixes
