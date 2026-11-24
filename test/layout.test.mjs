@@ -3,11 +3,11 @@
 // counters, the buttons or the mini card rows leaves the card, and the title never collapses. Skipped when Chromium
 // is not installed, except in CI, where it must run.
 import assert from "node:assert/strict";
-import { readFileSync } from "node:fs";
 import { after, before, test } from "node:test";
 import { devices, entities, qbittorrent, states } from "../scripts/mock-states.mjs";
+import { source } from "./source.mjs";
 
-const src = readFileSync(new URL("../src/seedbox-card.js", import.meta.url), "utf8");
+const src = source;
 let browser;
 let skip = false;
 before(async () => {
