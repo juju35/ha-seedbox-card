@@ -8,7 +8,7 @@ import { STRINGS } from "./i18n/strings.js";
 
 export const BASE_STYLE = `
   :host { --sb-ok: var(--success-color, #43a047); --sb-warn: var(--warning-color, #ffa600); --sb-crit: var(--error-color, #db4437);
-          --sb-idle: var(--disabled-text-color, #9e9e9e); --sb-down: var(--success-color, #43a047); --sb-up: var(--blue-color, #2196f3);
+          --sb-idle: var(--secondary-text-color, #9e9e9e); --sb-down: var(--success-color, #43a047); --sb-up: var(--blue-color, #2196f3);
           --sb-accent: var(--primary-color, #03a9f4); }
   :host { display: block; }
   ha-card { overflow: hidden; container-type: inline-size; }
